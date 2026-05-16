@@ -1,42 +1,31 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './app/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
+    './app/**/*.{js,jsx,ts,tsx}',
+    './components/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
     extend: {
       colors: {
-        primary:        '#78427F',
-        'primary-light':'#9A5BAA',
-        'primary-dark': '#5A2E66',
-        secondary:      '#CDA540',
-        'secondary-light':'#DFB855',
-        'secondary-dark':'#B08A28',
-        cream:          '#F2EDE5',
-        'cream-mid':    '#E8DDD0',
-        violet:         '#2D1535',
+        beige: '#F2EDE5',
+        violet: '#78427F',
+        'violet-fonce': '#5A2F61',
+        'violet-clair': '#9D6FA3',
+        'violet-pale': '#EDE7F6',
+        or: '#CDA540',
+        'or-fonce': '#B89437',
+        'or-clair': '#E0C670',
+        'or-pale': '#FFF9E6',
+        'gris-fonce': '#333333',
+        'gris-moyen': '#666666',
+        'gris-clair': '#E5E5E5',
       },
       fontFamily: {
-        heading: ['Georgia', 'Times New Roman', 'serif'],
-        body:    ['"Segoe UI"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+        playfair: ['"Playfair Display"', 'Georgia', 'serif'],
+        inter: ['Inter', 'system-ui', 'sans-serif'],
       },
-      animation: {
-        'fade-up':    'fadeUp 0.6s ease forwards',
-        'fade-in':    'fadeIn 0.5s ease forwards',
-        'pulse-slow': 'pulseSlow 3s ease-in-out infinite',
-        'float':      'float 6s ease-in-out infinite',
-      },
-      keyframes: {
-        fadeUp:    { from: { opacity: 0, transform: 'translateY(24px)' }, to: { opacity: 1, transform: 'translateY(0)' } },
-        fadeIn:    { from: { opacity: 0 }, to: { opacity: 1 } },
-        pulseSlow: { '0%,100%': { opacity: 1 }, '50%': { opacity: 0.6 } },
-        float:     { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
-      },
-      boxShadow: {
-        'card':  '0 4px 24px rgba(120,66,127,0.10)',
-        'hover': '0 12px 40px rgba(120,66,127,0.18)',
-        'gold':  '0 4px 20px rgba(205,165,64,0.25)',
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },

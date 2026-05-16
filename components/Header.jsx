@@ -1,16 +1,19 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X, ChevronDown } from 'lucide-react'
 
 const nav = [
   {
-    label: 'Nos offres',
+    label: 'Nos programmes',
     children: [
-      { label: 'Formation individuelle', href: '/offres/formation-individuelle' },
-      { label: 'Formation intra-entreprise', href: '/offres/formation-intra-entreprise' },
-      { label: 'Team building équicoaching', href: '/offres/team-building-equicoaching' },
+      { label: 'Formation Leadership', href: '/formation-leadership' },
+      { label: 'Teambuilding Équicoaching', href: '/teambuilding-equicoaching' },
     ],
   },
+  { label: 'Audit Gratuit', href: '/audit-gratuit' },
+  { label: 'À propos', href: '/a-propos' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -21,82 +24,150 @@ export default function Header() {
   const [dropOpen, setDropOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
-    <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
-      <div className="container header-inner">
-        <Link href="/" className="logo-link" onClick={() => setMenuOpen(false)}>
-          <LogoSVG />
-          <span className="logo-text">
-            <strong>SD Équicoaching</strong>
-            <em>Neurosciences · Équicoaching</em>
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-violet/5 py-3'
+          : 'bg-transparent py-5'
+      }`}
+    >
+      <div className="container flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <img src="/logo.svg" alt="SD Équicoaching" className="h-10 w-auto transition-transform group-hover:scale-105" />
+          <span className={`font-playfair font-semibold text-lg hidden sm:block transition-colors duration-300 ${scrolled ? 'text-violet-fonce' : 'text-white'}`}>
+            SD Équicoaching
           </span>
         </Link>
 
-        <nav className={`main-nav${menuOpen ? ' open' : ''}`} aria-label="Navigation principale">
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-8">
           {nav.map((item) =>
             item.children ? (
               <div
                 key={item.label}
-                className={`nav-dropdown${dropOpen ? ' open' : ''}`}
+                className="relative"
                 onMouseEnter={() => setDropOpen(true)}
                 onMouseLeave={() => setDropOpen(false)}
               >
-                <button
-                  className="nav-link dropdown-toggle"
-                  onClick={() => setDropOpen((v) => !v)}
-                  aria-expanded={dropOpen}
-                >
-                  {item.label} <span className="chevron">▾</span>
+                <button className={`flex items-center gap-1 font-inter font-medium text-sm transition-colors duration-300 ${scrolled ? 'text-gris-fonce hover:text-violet' : 'text-white/90 hover:text-white'}`}>
+                  {item.label}
+                  <ChevronDown className="w-4 h-4" />
                 </button>
-                <ul className="dropdown-menu">
-                  {item.children.map((child) => (
-                    <li key={child.href}>
-                      <Link href={child.href} className="dropdown-item" onClick={() => { setMenuOpen(false); setDropOpen(false) }}>
-                        {child.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <AnimatePresence>
+                  {dropOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 mt-3 bg-white rounded-xl shadow-xl shadow-violet/10 border border-gris-clair p-2 min-w-[220px]"
+                    >
+                      {item.children.map((c) => (
+                        <Link
+                          key={c.href}
+                          href={c.href}
+                          className="block px-4 py-3 rounded-lg text-gris-fonce hover:bg-violet-pale hover:text-violet font-inter text-sm transition-colors"
+                        >
+                          {c.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ) : (
-              <Link key={item.href} href={item.href} className="nav-link" onClick={() => setMenuOpen(false)}>
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`font-inter font-medium text-sm transition-colors duration-300 ${scrolled ? 'text-gris-fonce hover:text-violet' : 'text-white/90 hover:text-white'}`}
+              >
                 {item.label}
               </Link>
             )
           )}
-          <Link href="/contact" className="btn btn-primary btn-sm nav-cta" onClick={() => setMenuOpen(false)}>
-            Prendre contact
-          </Link>
         </nav>
 
+        {/* CTA desktop */}
+        <div className="hidden lg:block">
+          <Link
+            href="/audit-gratuit"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-or text-white font-inter font-semibold text-sm rounded-full transition-all duration-300 hover:bg-or-fonce hover:shadow-lg hover:shadow-or/30 hover:scale-105 active:scale-95"
+          >
+            Audit gratuit
+          </Link>
+        </div>
+
+        {/* Mobile toggle */}
         <button
-          className={`burger${menuOpen ? ' open' : ''}`}
-          onClick={() => setMenuOpen((v) => !v)}
-          aria-label="Menu"
-          aria-expanded={menuOpen}
+          className={`lg:hidden p-2 rounded-lg transition-colors ${scrolled ? 'text-violet-fonce' : 'text-white'}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
         >
-          <span /><span /><span />
+          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
-    </header>
-  )
-}
 
-function LogoSVG() {
-  return (
-    <svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <ellipse cx="50" cy="50" rx="46" ry="46" stroke="#CDA540" strokeWidth="3" fill="#F2EDE5" />
-      {/* Horse head silhouette */}
-      <path d="M58 22 C62 20 68 22 70 28 C72 34 70 40 66 44 C64 46 65 50 64 54 C63 58 60 60 56 58 C52 56 50 52 52 48 C54 44 50 40 48 36 C46 32 48 26 52 24 Z" fill="none" stroke="#CDA540" strokeWidth="2.5" strokeLinejoin="round" />
-      <path d="M58 22 C56 18 60 15 64 16 C66 17 67 20 66 22" fill="none" stroke="#CDA540" strokeWidth="2" />
-      <path d="M56 58 C54 62 52 68 54 72 C56 76 60 76 62 72" fill="none" stroke="#CDA540" strokeWidth="2.5" />
-      {/* SD monogram */}
-      <text x="26" y="72" fontFamily="Georgia, serif" fontWeight="700" fontSize="22" fill="#78427F" letterSpacing="-1">SD</text>
-    </svg>
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-white border-t border-gris-clair overflow-hidden"
+          >
+            <nav className="container py-6 flex flex-col gap-2">
+              {nav.map((item) =>
+                item.children ? (
+                  <div key={item.label}>
+                    <p className="px-4 py-2 font-inter font-semibold text-xs text-gris-moyen uppercase tracking-wider">
+                      {item.label}
+                    </p>
+                    {item.children.map((c) => (
+                      <Link
+                        key={c.href}
+                        href={c.href}
+                        className="block px-6 py-2 text-gris-fonce hover:text-violet font-inter text-sm"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {c.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="px-4 py-2 text-gris-fonce hover:text-violet font-inter font-medium"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
+              <div className="mt-4 px-4">
+                <Link
+                  href="/audit-gratuit"
+                  className="btn-primary w-full justify-center"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Réserver mon audit gratuit
+                </Link>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   )
 }

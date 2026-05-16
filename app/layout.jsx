@@ -1,15 +1,16 @@
 import './globals.css'
+import SmoothScroll from '../components/SmoothScroll'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export const metadata = {
   metadataBase: new URL('https://sd-equicoaching.fr'),
   title: {
-    default: 'SD Équicoaching — Neurosciences, Management & Équicoaching | Paris Île-de-France',
+    default: 'Cabinet Conseil Performance Managériale Paris | SD Équicoaching',
     template: '%s | SD Équicoaching',
   },
-  description: 'Formations en neurosciences, management et équicoaching pour dirigeants, managers et équipes. Accompagnement individuel et intra-entreprise en Île-de-France (Paris, Essonne 91).',
-  keywords: ['équicoaching', 'neurosciences', 'management', 'coaching', 'formation', 'Paris', 'Île-de-France', 'Essonne', 'team building'],
+  description: 'Transformez vos managers en leaders haute performance. Neurosciences × Équicoaching. 150+ managers formés. Certification Qualiopi. Île-de-France.',
+  keywords: ['performance managériale', 'neurosciences management', 'équicoaching', 'leadership', 'formation managers', 'Paris', 'Île-de-France'],
   authors: [{ name: 'SD Équicoaching' }],
   openGraph: {
     type: 'website',
@@ -21,7 +22,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>
+        <SmoothScroll />
         <Header />
         <main>{children}</main>
         <Footer />
