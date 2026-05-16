@@ -374,6 +374,7 @@ a:hover { color: var(--secondary-dark); }
   color: var(--primary);
   line-height: 1.1;
   margin-bottom: 1rem;
+  letter-spacing: -0.01em;
 }
 .section-dark .section-title { color: #fff; }
 .section-subtitle {
@@ -1125,15 +1126,15 @@ a:hover { color: var(--secondary-dark); }
 .stat-item { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
 .stat-value {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 700;
-  color: var(--secondary-light);
+  color: var(--secondary);
   line-height: 1;
 }
-.stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.6); text-align: center; }
+.stat-label { font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 0.3rem; font-weight: 500; }
 
 /* ── Offers grid ───────────────────────────────────────────── */
-.offers-section { background: var(--surface); }
+.offers-section { background: var(--cream); }
 .offers-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1163,7 +1164,7 @@ a:hover { color: var(--secondary-dark); }
 .offer-card-cta { margin-top: auto; }
 
 /* ── Approach ──────────────────────────────────────────────── */
-.approach-section { background: var(--cream); }
+.approach-section { background: #FFFFFF; }
 .approach-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

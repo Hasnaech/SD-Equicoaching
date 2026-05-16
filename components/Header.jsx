@@ -11,7 +11,6 @@ const nav = [
       { label: 'Team building équicoaching', href: '/offres/team-building-equicoaching' },
     ],
   },
-  { label: 'Agent IA', href: '/agent-ia' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ]

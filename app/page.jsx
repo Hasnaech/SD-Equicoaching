@@ -1,14 +1,11 @@
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import AnimatedSection from '../components/AnimatedSection'
 import OfferCard from '../components/OfferCard'
 import Button from '../components/Button'
 
-const HeroScene3D = dynamic(() => import('../components/HeroScene3D'), { ssr: false })
-
 export const metadata = {
-  title: 'SD Équicoaching — Neurosciences, Management & Équicoaching | Paris Île-de-France',
-  description: 'Développez votre leadership et révélez le potentiel de vos équipes grâce aux neurosciences et à l\'équicoaching. Formations sur-mesure à Paris et en Île-de-France.',
+  title: "SD Équicoaching — Neurosciences, Management & Équicoaching | Paris Île-de-France",
+  description: "Développez votre leadership et révélez le potentiel de vos équipes grâce aux neurosciences et à l'équicoaching. Formations sur-mesure à Paris et en Île-de-France.",
 }
 
 const jsonLd = {
@@ -28,49 +25,100 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* ─── HERO ──────────────────────────────────────────────────── */}
-      <section className="hero-section" aria-labelledby="hero-title">
-        <HeroScene3D />
+      <section
+        className="hero-photo-section"
+        style={{ backgroundImage: "url('/img/hero-bg.jpg')" }}
+        aria-labelledby="hero-title"
+      >
         <div className="container hero-content">
           <AnimatedSection animation="reveal" className="hero-badge">
             <span>Neurosciences · Management · Équicoaching</span>
           </AnimatedSection>
           <AnimatedSection tag="h1" id="hero-title" animation="reveal" delay={100} className="hero-title">
-            Révélez le potentiel humain<br />
-            <span className="text-gold">par le vivant</span>
+            Dirigeants, managers : et si votre style de leadership créait de la toxicité sans que vous le sachiez ?
           </AnimatedSection>
           <AnimatedSection animation="reveal" delay={200} className="hero-desc">
-            Formations sur-mesure pour dirigeants, managers et équipes.
-            Une approche unique alliant neurosciences appliquées et sagesse équestre,
-            au service de votre leadership et de la cohésion de vos équipes.
+            Les neurosciences et l'intelligence du cheval révèlent ce que vos collaborateurs n'osent pas vous dire.
           </AnimatedSection>
           <AnimatedSection animation="reveal" delay={300} className="hero-cta-group">
-            <Button href="/contact" variant="primary">Prendre contact</Button>
-            <Button href="/offres/formation-individuelle" variant="outline">Nos programmes</Button>
-          </AnimatedSection>
-          <AnimatedSection animation="reveal" delay={400} className="hero-reassurance">
-            <p>
-              À l'issue de notre échange, nous vous ferons une proposition de programme et de budget.
-              Si ce n'est pas le bon moment, vous repartirez déjà avec des pistes pour vos futures actions.
-            </p>
+            <Button href="/contact" variant="secondary">Découvrir mon profil de leadership</Button>
+            <Button href="/offres/formation-individuelle" variant="outline-white">Voir les programmes</Button>
           </AnimatedSection>
         </div>
-        <div className="hero-curve" aria-hidden="true" />
+        <div className="hero-curve" style={{ background: '#1A0B24' }} aria-hidden="true" />
+      </section>
+
+      {/* ─── NOTRE SIGNATURE / TOXICITÉ ────────────────────────────── */}
+      <section className="toxicity-section" aria-labelledby="toxicity-title">
+        <div className="container">
+          <AnimatedSection animation="reveal" className="section-header">
+            <h2 id="toxicity-title" className="section-title" style={{ color: '#fff' }}>
+              La toxicité au travail : notre terrain d&apos;expertise
+            </h2>
+            <p className="section-subtitle">
+              Nous révélons et transformons les dynamiques qui épuisent vos équipes et freinent votre organisation.
+            </p>
+          </AnimatedSection>
+          <div className="toxicity-grid">
+            {toxicityCards.map((card, i) => (
+              <AnimatedSection key={i} animation="reveal" delay={i * 120} className="toxicity-card">
+                <span className="toxicity-card-icon">{card.icon}</span>
+                <h3>{card.title}</h3>
+                <p>{card.desc}</p>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ─── STATS ─────────────────────────────────────────────────── */}
-      <section className="stats-section" aria-label="Chiffres clés">
+      <section className="stats-section section-white" aria-label="Chiffres clés">
         <div className="container stats-grid">
           {[
             { value: '200+', label: 'Managers formés' },
             { value: '15 ans', label: "d'expertise terrain" },
             { value: '98 %', label: 'de satisfaction' },
-            { value: 'Île-de-France', label: 'Zone d\'intervention' },
+            { value: 'Paris & IDF', label: "Zone d'intervention" },
           ].map(({ value, label }) => (
             <AnimatedSection key={label} animation="reveal" className="stat-item">
-              <strong className="stat-value">{value}</strong>
+              <strong className="stat-value stat-counter">{value}</strong>
               <span className="stat-label">{label}</span>
             </AnimatedSection>
           ))}
+        </div>
+      </section>
+
+      {/* ─── BEFORE / AFTER ────────────────────────────────────────── */}
+      <section className="section section-white" aria-labelledby="before-after-title">
+        <div className="container">
+          <AnimatedSection animation="reveal" className="section-header">
+            <h2 id="before-after-title" className="section-title">Avant et après nos programmes</h2>
+            <p className="section-subtitle">
+              Une transformation concrète, mesurable, ancrée dans le corps et le comportement.
+            </p>
+          </AnimatedSection>
+          <div className="before-after-grid">
+            <AnimatedSection animation="reveal-left" className="before-card">
+              <h3>Avant</h3>
+              <ul className="before-list">
+                <li>Vous gérez les problèmes</li>
+                <li>Vos réunions sont tendues</li>
+                <li>Vous perdez des talents</li>
+                <li>Votre équipe manque d'initiative</li>
+                <li>Vous doutez de votre impact</li>
+              </ul>
+            </AnimatedSection>
+            <AnimatedSection animation="reveal-right" className="after-card">
+              <h3>Après</h3>
+              <ul className="after-list">
+                <li>Vous créez les conditions</li>
+                <li>Vos réunions génèrent de l'énergie</li>
+                <li>Vos collaborateurs s'engagent</li>
+                <li>Votre équipe propose et innove</li>
+                <li>Votre leadership rayonne</li>
+              </ul>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
@@ -92,7 +140,7 @@ export default function HomePage() {
                 features={[
                   'Bilan de leadership personnalisé',
                   'Séances individuelles avec le cheval',
-                  'Plan d\'action concret et mesurable',
+                  "Plan d'action concret et mesurable",
                   'Suivi post-formation 3 mois',
                 ]}
                 href="/offres/formation-individuelle"
@@ -108,7 +156,7 @@ export default function HomePage() {
                   'Diagnostic organisationnel préalable',
                   'Ateliers collectifs sur-mesure',
                   'Outils neurosciences pour managers',
-                  'Mesure d\'impact RH',
+                  "Mesure d'impact RH",
                 ]}
                 href="/offres/formation-intra-entreprise"
                 cta="Découvrir le programme"
@@ -122,7 +170,7 @@ export default function HomePage() {
                 features={[
                   'Journée complète avec les chevaux',
                   'Exercices de communication non-verbale',
-                  'Révélation des dynamiques d\'équipe',
+                  "Révélation des dynamiques d'équipe",
                   'Debriefs animés par nos coachs',
                 ]}
                 href="/offres/team-building-equicoaching"
@@ -180,20 +228,26 @@ export default function HomePage() {
       </section>
 
       {/* ─── TESTIMONIALS ──────────────────────────────────────────── */}
-      <section className="section testimonials-section" aria-labelledby="testimonials-title">
+      <section className="section testimonials-section" style={{ background: 'var(--cream)' }} aria-labelledby="testimonials-title">
         <div className="container">
           <AnimatedSection animation="reveal" className="section-header">
             <h2 id="testimonials-title" className="section-title">Ils nous font confiance</h2>
           </AnimatedSection>
           <div className="testimonials-grid">
             {testimonials.map((t, i) => (
-              <AnimatedSection key={i} animation="reveal" delay={i * 100} className="testimonial-card">
+              <AnimatedSection key={i} animation="reveal" delay={i * 100} className="testimonial-card-premium">
+                <span className="testimonial-quote-mark" aria-hidden="true">"</span>
                 <blockquote>
-                  <p className="testimonial-text">"{t.text}"</p>
-                  <footer>
-                    <strong className="testimonial-name">{t.name}</strong>
-                    <span className="testimonial-role">{t.role}</span>
-                  </footer>
+                  <p style={{ fontStyle: 'italic', color: 'var(--text-muted)', fontSize: '0.97rem', lineHeight: '1.75' }}>{t.text}</p>
+                  <div className="testimonial-author-row">
+                    <div className="testimonial-author-avatar" aria-hidden="true">
+                      {t.name.charAt(0)}
+                    </div>
+                    <footer>
+                      <strong className="testimonial-name" style={{ display: 'block', color: 'var(--primary)', fontSize: '0.92rem' }}>{t.name}</strong>
+                      <span className="testimonial-role" style={{ fontSize: '0.78rem', color: 'var(--text-light)' }}>{t.role}</span>
+                    </footer>
+                  </div>
                 </blockquote>
               </AnimatedSection>
             ))}
@@ -202,7 +256,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── GEO / LOCAL SEO ───────────────────────────────────────── */}
-      <section className="section geo-section" aria-labelledby="geo-title">
+      <section className="section section-white geo-section" aria-labelledby="geo-title">
         <div className="container">
           <AnimatedSection animation="reveal" className="section-header">
             <h2 id="geo-title" className="section-title">Où nous intervenons</h2>
@@ -223,17 +277,16 @@ export default function HomePage() {
       </section>
 
       {/* ─── FINAL CTA ─────────────────────────────────────────────── */}
-      <section className="section cta-section" aria-labelledby="cta-title">
+      <section className="section cta-section" style={{ background: '#1A0B24' }} aria-labelledby="cta-title">
         <div className="container cta-content">
           <AnimatedSection animation="reveal">
-            <h2 id="cta-title" className="cta-title">Prêt à transformer votre leadership ?</h2>
+            <h2 id="cta-title" className="cta-title" style={{ color: '#fff' }}>Prêt à transformer votre leadership ?</h2>
             <p className="cta-desc">
               À l'issue de notre échange, nous vous ferons une proposition de programme et de budget.
               Si ce n'est pas le bon moment, vous repartirez déjà avec des pistes pour vos futures actions.
             </p>
             <div className="cta-buttons">
               <Button href="/contact" variant="secondary">Prendre contact</Button>
-              <Button href="/agent-ia" variant="outline-light">Tester l'assistant IA</Button>
             </div>
           </AnimatedSection>
         </div>
@@ -241,6 +294,24 @@ export default function HomePage() {
     </>
   )
 }
+
+const toxicityCards = [
+  {
+    icon: '⚡',
+    title: 'Comportements toxiques',
+    desc: "Stress chronique, dévalorisation, micro-management : nous les identifions et les transformons par les neurosciences.",
+  },
+  {
+    icon: '🔍',
+    title: 'Leadership sous pression',
+    desc: "Quand la pression devient contre-productive, le cheval révèle ce que les tableaux de bord ne montrent pas.",
+  },
+  {
+    icon: '🤝',
+    title: 'Cohésion brisée',
+    desc: "Tensions d'équipe, turn-over, silences pesants : nous recréons la confiance par l'expérience vécue.",
+  },
+]
 
 const testimonials = [
   {
@@ -254,7 +325,7 @@ const testimonials = [
     role: 'DG, PME 120 collaborateurs, Essonne',
   },
   {
-    text: "Je suis venue avec des doutes sur «le truc avec les chevaux»... Je repars avec des outils concrets de régulation émotionnelle que j'utilise chaque jour.",
+    text: "Je suis venue avec des doutes sur le coaching par les chevaux. Je repars avec des outils concrets de régulation émotionnelle que j'utilise chaque jour.",
     name: 'Isabelle C.',
     role: 'Manager de proximité, secteur bancaire, Paris',
   },

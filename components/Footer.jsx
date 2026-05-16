@@ -26,7 +26,6 @@ export default function Footer() {
           <h3 className="footer-heading">Ressources</h3>
           <ul className="footer-links">
             <li><Link href="/blog">Blog & Articles</Link></li>
-            <li><Link href="/agent-ia">Assistant IA</Link></li>
             <li><Link href="/contact">Contact</Link></li>
           </ul>
         </div>

@@ -20,20 +20,21 @@ export default function TeamBuildingPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* Hero avec background stylisé */}
-      <section className="page-hero page-hero--equi" aria-labelledby="tb-title">
-        <div className="hero-horses-bg" aria-hidden="true">
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className={`horse-silhouette horse-silhouette--${i + 1}`} />
-          ))}
-        </div>
-        <div className="container page-hero-content">
-          <AnimatedSection animation="reveal" className="page-badge">Team building équicoaching</AnimatedSection>
-          <AnimatedSection tag="h1" id="tb-title" animation="reveal" delay={100} className="page-title">
+      {/* Hero avec photo pleine largeur */}
+      <section
+        className="hero-photo-section"
+        style={{ backgroundImage: "url('/img/team-building-hero.jpg')" }}
+        aria-labelledby="tb-title"
+      >
+        <div className="container hero-content">
+          <AnimatedSection animation="reveal" className="hero-badge">
+            <span>Team building équicoaching</span>
+          </AnimatedSection>
+          <AnimatedSection tag="h1" id="tb-title" animation="reveal" delay={100} className="hero-title">
             L'intelligence du vivant<br />
             <span className="text-gold">au service de votre équipe</span>
           </AnimatedSection>
-          <AnimatedSection animation="reveal" delay={200} className="page-desc">
+          <AnimatedSection animation="reveal" delay={200} className="hero-desc">
             Une journée hors du commun qui révèle les dynamiques de votre équipe comme aucun
             jeu de rôle ni formation conventionnelle ne peut le faire. Le cheval ne ment pas.
           </AnimatedSection>
