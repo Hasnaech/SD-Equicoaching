@@ -4,3 +4,5 @@ package-lock.json
 screenshot.mjs
 screenshots/
 .next/
+.claude/
+out/
