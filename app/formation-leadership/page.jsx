@@ -88,6 +88,125 @@ export default function FormationLeadershipPage() {
         </div>
       </section>
 
+      {/* Programme 3 jours */}
+      <section className="bg-beige py-24 md:py-32">
+        <div className="container">
+          <FadeIn className="text-center mb-16">
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Format intra-entreprise</p>
+            <h2 className="text-4xl md:text-5xl font-playfair font-semibold text-violet-fonce">Le programme 3 jours</h2>
+            <p className="text-gris-moyen font-inter text-lg mt-4 max-w-2xl mx-auto">
+              Un parcours immersif structuré pour transformer durablement les postures de leadership de vos managers.
+            </p>
+          </FadeIn>
+          <div className="space-y-8 max-w-4xl mx-auto">
+            {/* Jour 1 */}
+            <FadeIn>
+              <div className="bg-white rounded-2xl border border-gris-clair overflow-hidden">
+                <div className="bg-gradient-to-r from-violet-fonce to-violet px-8 py-6 flex items-center gap-4">
+                  <span className="text-or font-playfair font-bold text-5xl leading-none">1</span>
+                  <div>
+                    <p className="text-white/60 font-inter text-sm uppercase tracking-widest">Jour 1</p>
+                    <h3 className="text-white font-playfair font-semibold text-2xl">Neurosciences & États du Cerveau</h3>
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gris-clair">
+                  <div className="p-8">
+                    <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Matin — 9h00 à 12h30</p>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Comprendre son cerveau de leader</h4>
+                    <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Introduction à la théorie polyvagale : les 3 états du système nerveux (sécurité, mobilisation, effondrement)</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Cartographie personnelle : identifier ses déclencheurs de stress et patterns automatiques</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Les biais cognitifs du manager : comment le cerveau prend de mauvaises décisions sous pression</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Atelier pratique : test d'auto-évaluation neuro-leadership</li>
+                    </ul>
+                  </div>
+                  <div className="p-8">
+                    <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Après-midi — 14h00 à 18h00</p>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Les saboteurs intérieurs</h4>
+                    <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Les 9 saboteurs (méthode Positive Intelligence) : identification et impact sur le leadership</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Techniques de régulation émotionnelle : cohérence cardiaque, ancrage sensoriel</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Passage en revue des situations professionnelles difficiles à travers le prisme neuroscientifique</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Clôture : journal de bord — 3 insights clés + 1 intention pour demain</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Jour 2 */}
+            <FadeIn delay={0.1}>
+              <div className="bg-white rounded-2xl border border-gris-clair overflow-hidden">
+                <div className="bg-gradient-to-r from-or to-or-fonce px-8 py-6 flex items-center gap-4">
+                  <span className="text-white/30 font-playfair font-bold text-5xl leading-none">2</span>
+                  <div>
+                    <p className="text-white/60 font-inter text-sm uppercase tracking-widest">Jour 2</p>
+                    <h3 className="text-white font-playfair font-semibold text-2xl">Leadership & Régulation Émotionnelle</h3>
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gris-clair">
+                  <div className="p-8">
+                    <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Matin — 9h00 à 12h30</p>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Neurosciences de l'influence</h4>
+                    <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Synchronisation cérébrale et contagion émotionnelle : pourquoi l'état du leader contamine toute l'équipe</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Communication non verbale : décoder les 55% du message que vous ne dites pas</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Construire la sécurité psychologique : modèle des 4 stades (Amy Edmondson)</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Mise en pratique par duos : feedbacks avec ancrage neuroscientifique</li>
+                    </ul>
+                  </div>
+                  <div className="p-8">
+                    <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Après-midi — 14h00 à 18h00</p>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Première immersion équicoaching</h4>
+                    <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Introduction à l'intelligence des chevaux : biofeedback instantané, cohérence émotionnelle</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Exercice de mise en mouvement collectif : leadership sans paroles — qui prend le lead ?</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Debrief individuel guidé : que révèle le cheval de votre posture de leader ?</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Ancrage : liens entre observations terrain et contexte professionnel réel</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Jour 3 */}
+            <FadeIn delay={0.2}>
+              <div className="bg-white rounded-2xl border border-gris-clair overflow-hidden">
+                <div className="bg-gradient-to-r from-violet to-violet-fonce px-8 py-6 flex items-center gap-4">
+                  <span className="text-white/30 font-playfair font-bold text-5xl leading-none">3</span>
+                  <div>
+                    <p className="text-white/60 font-inter text-sm uppercase tracking-widest">Jour 3</p>
+                    <h3 className="text-white font-playfair font-semibold text-2xl">Ancrage & Plan d'Action</h3>
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gris-clair">
+                  <div className="p-8">
+                    <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Matin — 9h00 à 12h30</p>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Équicoaching approfondi</h4>
+                    <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Séances individuelles en présence du cheval : incarner physiquement la nouvelle posture de leader</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Exercice collectif avancé : co-leadership et gestion des tensions en temps réel</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Retour sur les 2 jours : quels patterns ont émergé ? Quelles ressources nouvelles ont été découvertes ?</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Intégration des apprentissages : synthèse neurosciences × équicoaching</li>
+                    </ul>
+                  </div>
+                  <div className="p-8">
+                    <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Après-midi — 14h00 à 18h00</p>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Construction du plan d'action</h4>
+                    <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Bilan 360° collectif : retours croisés entre participants</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Plan de développement individuel à 6 mois : 3 engagements concrets + indicateurs de réussite</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Dispositif de suivi : sessions de consolidation à M+1 et M+3</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Remise du livret de restitution personnalisé sous 10 jours ouvrés</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* Formats */}
       <section className="bg-beige py-24 md:py-32">
         <div className="container">
