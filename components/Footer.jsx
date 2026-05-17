@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="md:col-span-1">
-            <img src="/logo.svg" alt="SD Équicoaching" className="h-10 mb-4 brightness-0 invert" />
+            <img src="/logo.png" alt="SD Équicoaching" className="h-14 mb-4 brightness-0 invert" />
             <p className="text-white/65 font-inter text-sm leading-relaxed mb-5">
               Cabinet conseil en performance managériale. Neurosciences comportementales × Équicoaching.
             </p>
@@ -42,7 +42,7 @@ export default function Footer() {
             <ul className="space-y-3 font-inter text-sm text-white/65">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-or shrink-0 mt-0.5" />
-                <span>Paris & Île-de-France</span>
+                <span>Partout en France<br /><span className="text-white/40 text-xs">200+ partenaires équestres</span></span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-or shrink-0" />

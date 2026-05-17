@@ -50,8 +50,8 @@ const offers = [
     icon: '🐴',
     title: 'Teambuilding',
     subtitle: 'Équicoaching',
-    desc: "Journée d'exception pour révéler et transformer les dynamiques de votre équipe.",
-    features: ["Diagnostic des rôles d'équipe", "Ateliers avec les chevaux", "Debrief collectif approfondi", "Plan d'action co-construit"],
+    desc: "Journée d'exception dans l'un de nos 200+ domaines partenaires partout en France.",
+    features: ["Partout en France — 200+ partenaires", "Ateliers avec les chevaux", "Debrief collectif approfondi", "Plan d'action co-construit"],
     href: '/teambuilding-equicoaching',
     featured: false,
   },
@@ -167,8 +167,8 @@ export default function HomePage() {
             {[
               { value: '150', suffix: '+', label: 'Managers formés' },
               { value: '98',  suffix: '%', label: 'Taux de satisfaction' },
+              { value: '200', suffix: '+', label: 'Partenaires équestres' },
               { value: '15',  suffix: '+', label: "Années d'expertise" },
-              { value: '3',   suffix: 'x', label: 'ROI moyen constaté' },
             ].map((stat, i) => (
               <FadeIn key={stat.label} delay={i * 0.1}>
                 <div className="text-or text-4xl md:text-5xl font-bold font-playfair mb-2">

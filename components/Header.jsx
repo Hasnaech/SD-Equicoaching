@@ -43,10 +43,7 @@ export default function Header() {
       <div className="container flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <img src="/logo.svg" alt="SD Équicoaching" className="h-10 w-auto transition-transform group-hover:scale-105" />
-          <span className={`font-playfair font-semibold text-lg hidden sm:block transition-colors duration-300 ${scrolled ? 'text-violet-fonce' : 'text-white'}`}>
-            SD Équicoaching
-          </span>
+          <img src="/logo.png" alt="SD Équicoaching" className="h-12 w-auto transition-transform group-hover:scale-105" />
         </Link>
 
         {/* Desktop nav */}
