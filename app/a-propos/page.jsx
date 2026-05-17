@@ -35,13 +35,12 @@ export default function AProposPage() {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <FadeIn direction="left">
-              <div className="bg-beige rounded-2xl aspect-[4/5] flex items-center justify-center">
-                <div className="text-center text-gris-moyen font-inter">
-                  <div className="w-32 h-32 rounded-full bg-violet/10 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-5xl">👩</span>
-                  </div>
-                  <p className="text-sm italic">Photo à venir</p>
-                </div>
+              <div className="rounded-2xl overflow-hidden aspect-[4/5] relative bg-beige">
+                <img
+                  src="/img/sarah.jpg"
+                  alt="Sarah D. — Fondatrice de SD Équicoaching"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
             </FadeIn>
             <FadeIn direction="right">
