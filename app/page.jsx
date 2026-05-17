@@ -13,27 +13,27 @@ const HeroScene3D = lazy(() => import('../components/HeroScene3D'))
 
 const problems = [
   {
-    icon: '📉',
-    title: 'Votre turnover explose',
-    desc: "Vos meilleurs talents quittent le navire, le recrutement coûte cher, et les équipes peinent à retrouver leur cohésion.",
+    icon: '😰',
+    title: 'Votre meilleur manager vient de craquer',
+    desc: "Burn-out, arrêt maladie, ou pire : il est là physiquement, mais mentalement il a déjà démissionné. Et vous ne l'avez pas vu venir.",
   },
   {
     icon: '🔥',
-    title: 'Conflits récurrents',
-    desc: "Tensions entre managers et équipes, communication dysfonctionnelle, ambiance qui pèse sur la performance collective.",
+    title: 'Vos réunions ressemblent à des rings de boxe',
+    desc: "Tensions, non-dits, micro-agressions. Vous passez 80 % de votre temps à éteindre des feux au lieu de construire.",
   },
   {
-    icon: '😰',
-    title: "Vos managers s'épuisent",
-    desc: "Surcharge, perte de sens, difficulté à embarquer leurs équipes : le leadership s'use dans l'urgence permanente.",
+    icon: '💸',
+    title: 'Le turnover vous coûte une fortune',
+    desc: "Recrutement, formation, perte de productivité. 6 à 24 mois de salaire par départ. Et ça recommence 18 mois plus tard.",
   },
 ]
 
 const steps = [
-  { n: '01', title: 'Audit Neuro-Management', desc: "Analyse approfondie des dynamiques de vos équipes et des leviers de performance invisibles." },
-  { n: '02', title: "Plan d'action sur-mesure", desc: "Définition des axes de transformation selon vos objectifs stratégiques et votre culture d'entreprise." },
-  { n: '03', title: 'Formations Neurosciences', desc: "Programmes de développement du leadership ancrés dans les neurosciences comportementales." },
-  { n: '04', title: 'Ancrage Équicoaching', desc: "Ateliers immersifs avec le cheval pour ancrer durablement les nouvelles postures managériales." },
+  { n: '01', title: 'On voit ce qui ne marche pas', desc: "Audit neuro-management. On identifie les dynamiques invisibles qui plombent votre performance. Rapport PDF actionnable sous 3 semaines." },
+  { n: '02', title: 'On leur explique pourquoi ils réagissent comme ça', desc: "Formation neurosciences comportementales. Vos managers comprennent ce qui se passe dans leur cerveau quand ça chauffe. Et comment réguler." },
+  { n: '03', title: 'On ancre tout ça dans le corps', desc: "Équicoaching en équipe. Le cheval révèle instantanément si vous êtes régulé ou pas. Impossible de tricher. Impossible d'oublier." },
+  { n: '04', title: 'On mesure. Tout.', desc: "Suivi post-formation à M+1 et M+3. Indicateurs définis avant le démarrage. Résultats prouvés, pas estimés." },
 ]
 
 const offers = [
@@ -68,19 +68,22 @@ const offers = [
 
 const testimonials = [
   {
-    quote: "En 6 mois, nos indicateurs RH ont été transformés. Le taux d'engagement a bondi de 34 points. L'approche neurosciences + cheval est d'une efficacité redoutable.",
-    name: "Marc T.",
-    role: "DRH, groupe industriel 800 personnes",
+    quote: "J'étais sceptique. Genre vraiment sceptique. Un cheval, sérieusement ? Puis on a essayé. En 6 mois, notre turnover a chuté de 30 %. Et les managers nous remercient encore.",
+    name: "Marie L.",
+    role: "DRH, Groupe Industriel",
+    result: "−30 % turnover · +15 pts climat social",
   },
   {
-    quote: "Je gérais des situations complexes avec une tension permanente. Après le programme, je comprends ce qui se joue réellement et j'ai les outils pour agir différemment.",
-    name: "Sophie L.",
-    role: "Directrice de business unit",
+    quote: "15 ans que je manage. Je pensais tout savoir. Cette formation m'a mis face à mes incohérences. Ça fait mal. Mais ça change tout. Maintenant je régule avant de dire un truc que je vais regretter.",
+    name: "Pierre D.",
+    role: "Directeur Commercial, Pharma",
+    result: "+25 % performance équipe",
   },
   {
-    quote: "Le teambuilding équicoaching a révélé en une journée ce que deux ans d'observation RH n'avaient pas permis de voir. Le debrief était d'une richesse incroyable.",
-    name: "Pierre M.",
-    role: "CEO, ETI familiale",
+    quote: "On avait essayé 4 formations avant. Résultat : zéro. Les gens repartaient contents, puis retombaient dans les mêmes patterns 3 semaines après. Là, 6 mois plus tard, ça tient encore.",
+    name: "Sophie M.",
+    role: "CEO, Startup Tech",
+    result: "NPS +40 points",
   },
 ]
 
@@ -108,7 +111,10 @@ export default function HomePage() {
           </motion.div>
 
           <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-playfair font-semibold mb-6 max-w-5xl leading-tight">
-            <TextReveal>Transformez vos managers en leaders haute performance</TextReveal>
+            <TextReveal>Votre meilleur manager vient de démissionner.</TextReveal>
+            <span className="text-or block mt-2">
+              <TextReveal delay={0.3}>Encore.</TextReveal>
+            </span>
           </h1>
 
           <motion.p
@@ -117,8 +123,9 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-white/80 text-lg md:text-xl font-inter mb-10 max-w-2xl leading-relaxed"
           >
-            Cabinet conseil en performance managériale.{' '}
-            <strong className="text-or">Approche unique en France : Neurosciences × Équicoaching.</strong>
+            Le problème n&apos;est pas vos managers.<br />
+            Ce sont les <strong className="text-or">dynamiques invisibles</strong> qui régissent vos équipes.<br />
+            On vous apprend à les voir. Et à les transformer.
           </motion.p>
 
           <motion.div
@@ -141,7 +148,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.75 }}
             className="flex flex-wrap gap-6 text-white/70 font-inter text-sm"
           >
-            {['Certification Qualiopi', '15+ ans expérience', 'Paris & Île-de-France'].map((badge) => (
+            {['Certification Qualiopi', '15+ ans expérience', 'Partout en France'].map((badge) => (
               <span key={badge} className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-or" />
                 {badge}
@@ -165,16 +172,17 @@ export default function HomePage() {
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: '150', suffix: '+', label: 'Managers formés' },
-              { value: '98',  suffix: '%', label: 'Taux de satisfaction' },
-              { value: '200', suffix: '+', label: 'Partenaires équestres' },
-              { value: '15',  suffix: '+', label: "Années d'expertise" },
+              { value: '150', suffix: '+', label: 'managers qui ne pètent plus les plombs', note: '(enfin, presque)' },
+              { value: '98',  suffix: '%', label: 'nous recommandent', note: '(les 2 % restants n\'ont pas répondu)' },
+              { value: '200', suffix: '+', label: 'partenaires équestres', note: 'partout en France' },
+              { value: '30',  suffix: '%', label: 'de turnover en moins en moyenne', note: '(oui, on mesure tout)' },
             ].map((stat, i) => (
               <FadeIn key={stat.label} delay={i * 0.1}>
                 <div className="text-or text-4xl md:text-5xl font-bold font-playfair mb-2">
                   <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-white/75 font-inter text-sm">{stat.label}</div>
+                <div className="text-white/85 font-inter text-sm font-medium leading-snug">{stat.label}</div>
+                <div className="text-white/45 font-inter text-xs mt-1">{stat.note}</div>
               </FadeIn>
             ))}
           </div>
@@ -186,14 +194,11 @@ export default function HomePage() {
         <div className="container">
           <FadeIn className="text-center mb-16">
             <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">
-              Signaux d&apos;alerte
+              On parie que vous reconnaissez au moins 2 de ces situations
             </p>
             <h2 className="text-4xl md:text-5xl font-playfair font-semibold mb-4">
-              <TextReveal>Vous reconnaissez-vous ?</TextReveal>
+              <TextReveal>Ça vous parle ?</TextReveal>
             </h2>
-            <p className="text-gris-moyen text-lg max-w-2xl mx-auto font-inter">
-              Ces signaux révèlent des dynamiques invisibles qui plafonnent vos résultats.
-            </p>
           </FadeIn>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -213,10 +218,13 @@ export default function HomePage() {
           </div>
 
           <FadeIn delay={0.3} className="text-center mt-14">
-            <p className="text-xl font-inter text-gris-fonce max-w-3xl mx-auto">
-              Le problème n&apos;est pas vos managers. Ce sont les{' '}
-              <span className="text-or font-semibold">dynamiques invisibles</span>{' '}
-              qui régissent vos équipes.
+            <p className="text-xl font-inter text-gris-fonce max-w-3xl mx-auto leading-relaxed">
+              Le problème n&apos;est pas vos managers.{' '}
+              <strong className="text-violet-fonce">On ne leur a jamais appris</strong>{' '}
+              comment fonctionne leur cerveau sous pression.
+            </p>
+            <p className="text-gris-moyen font-inter mt-3">
+              C&apos;est précisément ce qu&apos;on fait.
             </p>
           </FadeIn>
         </div>
@@ -231,10 +239,11 @@ export default function HomePage() {
         />
         <div className="container relative z-10">
           <FadeIn className="text-center mb-16">
-            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Notre approche</p>
-            <h2 className="text-4xl md:text-5xl font-playfair font-semibold mb-4">La Méthode A.N.E.</h2>
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Notre méthode</p>
+            <h2 className="text-4xl md:text-5xl font-playfair font-semibold mb-4">On ne vous vend pas du vent.</h2>
             <p className="text-gris-moyen text-lg max-w-2xl mx-auto font-inter">
-              Audit + Neurosciences + Équicoaching = Transformation durable et mesurable
+              3 étapes. Aucun bullshit. Des résultats mesurables.
+              <br />Bienvenue dans la <strong className="text-violet-fonce">Méthode A.N.E.</strong>
             </p>
           </FadeIn>
 
@@ -254,6 +263,16 @@ export default function HomePage() {
               </FadeIn>
             ))}
           </div>
+
+          <FadeIn delay={0.4} className="mt-16 bg-white rounded-2xl p-8 md:p-10 border border-gris-clair max-w-3xl mx-auto text-center">
+            <p className="font-playfair font-semibold text-xl text-violet-fonce mb-3">Résultat ?</p>
+            <p className="text-gris-moyen font-inter leading-relaxed">
+              Vos managers régulent leur stress.{' '}
+              <strong className="text-violet-fonce">Vos équipes respirent.</strong>{' '}
+              Votre turnover chute.
+            </p>
+            <p className="text-gris-moyen/60 font-inter text-sm mt-2">(Et on a les chiffres pour le prouver.)</p>
+          </FadeIn>
         </div>
       </section>
 
@@ -317,8 +336,8 @@ export default function HomePage() {
       <section className="bg-beige py-24 md:py-32">
         <div className="container">
           <FadeIn className="text-center mb-16">
-            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Ils témoignent</p>
-            <h2 className="text-4xl md:text-5xl font-playfair font-semibold">Des transformations réelles</h2>
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Ce qu&apos;ils disent (vraiment)</p>
+            <h2 className="text-4xl md:text-5xl font-playfair font-semibold">Pas de bullshit. Juste des faits.</h2>
           </FadeIn>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -336,6 +355,7 @@ export default function HomePage() {
                   <footer>
                     <p className="font-playfair font-semibold text-violet-fonce">{t.name}</p>
                     <p className="text-gris-moyen font-inter text-sm">{t.role}</p>
+                    <p className="text-or font-inter font-semibold text-xs mt-2">{t.result}</p>
                   </footer>
                 </blockquote>
               </FadeIn>
@@ -347,25 +367,50 @@ export default function HomePage() {
       {/* CTA FINAL */}
       <section className="bg-violet-fonce py-24 md:py-32 relative overflow-hidden">
         <GradientBlob />
-        <div className="container relative z-10 text-center">
-          <FadeIn>
-            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-4">
-              Passez à l&apos;action
-            </p>
-            <h2 className="text-white text-4xl md:text-5xl font-playfair font-semibold mb-6 max-w-3xl mx-auto">
-              Prêt à transformer la performance de vos équipes ?
+        <div className="container relative z-10">
+          <FadeIn className="text-center mb-16">
+            <h2 className="text-white text-4xl md:text-5xl font-playfair font-semibold mb-4 max-w-3xl mx-auto">
+              Combien de managers brillants allez-vous encore perdre cette année ?
             </h2>
-            <p className="text-white/70 font-inter text-lg mb-10 max-w-2xl mx-auto">
-              Réservez votre audit gratuit de 45 minutes. Diagnostic personnalisé, recommandations actionnables. Sans engagement.
+            <p className="text-white/70 font-inter text-lg max-w-xl mx-auto">
+              Vous avez deux options.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <MagneticButton href="/audit-gratuit" variant="primary">
-                Réserver mon audit gratuit <ArrowRight className="w-4 h-4" />
-              </MagneticButton>
-              <Link href="/contact" className="btn-outline-white">
-                Nous contacter
-              </Link>
-            </div>
+          </FadeIn>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
+            <FadeIn delay={0.1}>
+              <div className="bg-white/5 border border-white/15 rounded-2xl p-8 h-full">
+                <p className="text-white/50 font-inter font-semibold text-xs uppercase tracking-widest mb-4">Option 1</p>
+                <h3 className="text-white font-playfair font-semibold text-xl mb-4">Continuer comme maintenant</h3>
+                <ul className="space-y-2 text-white/60 font-inter text-sm">
+                  <li>Attendre que ça se calme tout seul</li>
+                  <li>Perdre encore 2-3 managers clés</li>
+                  <li>Payer le prix (6 à 24 mois de salaire × 3)</li>
+                </ul>
+                <p className="text-white/30 font-inter text-xs mt-5 italic">Spoiler : ça ne se calmera pas tout seul.</p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.2}>
+              <div className="bg-or/10 border-2 border-or rounded-2xl p-8 h-full">
+                <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Option 2</p>
+                <h3 className="text-white font-playfair font-semibold text-xl mb-4">Réserver 30 minutes avec nous</h3>
+                <ul className="space-y-2 text-white/80 font-inter text-sm mb-6">
+                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />On analyse votre situation</li>
+                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />On vous dit si on peut vous aider (ou pas)</li>
+                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Sans engagement. Sans bullshit.</li>
+                </ul>
+                <MagneticButton href="/audit-gratuit">
+                  Réserver mon audit gratuit <ArrowRight className="w-4 h-4" />
+                </MagneticButton>
+              </div>
+            </FadeIn>
+          </div>
+
+          <FadeIn delay={0.3} className="text-center">
+            <p className="text-white/35 font-inter text-sm">
+              Places limitées chaque mois. On ne prend que les projets où on sait qu&apos;on peut avoir un impact.
+            </p>
           </FadeIn>
         </div>
       </section>

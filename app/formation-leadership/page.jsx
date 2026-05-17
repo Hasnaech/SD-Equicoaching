@@ -5,8 +5,8 @@ import TextReveal from '../../components/TextReveal'
 import MagneticButton from '../../components/MagneticButton'
 
 export const metadata = {
-  title: 'Formation Leadership Haute Performance — Neurosciences',
-  description: "Programme de transformation managériale par les neurosciences comportementales. Formation individuelle et intra-entreprise. Certification Qualiopi. Paris & IDF.",
+  title: 'Formation Leadership Haute Performance — Neurosciences | SD Équicoaching',
+  description: "Programme de transformation managériale par les neurosciences comportementales. Formation individuelle et intra-entreprise. Certification Qualiopi. Partout en France.",
 }
 
 const modules = [
@@ -35,6 +35,39 @@ const formats = [
   },
 ]
 
+const profiles = [
+  {
+    who: 'Vous êtes manager',
+    pain: "Et vous en avez marre de :",
+    items: [
+      "Péter un câble en réunion puis le regretter 2h après",
+      "Passer vos nuits à ruminer cette conversation qui a mal tourné",
+      "Voir vos meilleurs éléments partir parce que « l'ambiance est lourde »",
+    ],
+    conclusion: "Ce n'est pas vous le problème. C'est votre système nerveux. Et on peut le réguler.",
+  },
+  {
+    who: 'Vous êtes DRH',
+    pain: "Et vous cherchez une formation qui :",
+    items: [
+      "Change vraiment les comportements (pas juste pendant 3 semaines)",
+      "A des résultats mesurables — on parle chiffres, pas ressentis",
+      "Est fondée scientifiquement (pas du bullshit coaching)",
+    ],
+    conclusion: "Vous êtes au bon endroit. On mesure tout. Et ça marche.",
+  },
+  {
+    who: 'Vous êtes dirigeant',
+    pain: "Et vous voulez arrêter de :",
+    items: [
+      "Perdre vos meilleurs managers tous les 18 mois",
+      "Gérer des conflits d'équipe qui plombent la performance",
+      "Payer des formations qui ne changent rien",
+    ],
+    conclusion: "Le ROI moyen de cette formation : 250 % à 18 mois. On a les chiffres.",
+  },
+]
+
 export default function FormationLeadershipPage() {
   return (
     <>
@@ -45,12 +78,16 @@ export default function FormationLeadershipPage() {
           <FadeIn>
             <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-4">Formation Leadership</p>
           </FadeIn>
-          <h1 className="text-white text-4xl md:text-6xl font-playfair font-semibold mb-6 max-w-4xl leading-tight">
-            <TextReveal>Leadership Haute Performance par les Neurosciences</TextReveal>
+          <h1 className="text-white text-4xl md:text-6xl font-playfair font-semibold mb-4 max-w-4xl leading-tight">
+            <TextReveal>Cette formation, vos managers vont la détester.</TextReveal>
           </h1>
-          <FadeIn delay={0.3}>
+          <h2 className="text-or text-2xl md:text-3xl font-playfair font-semibold mb-6 max-w-3xl leading-snug">
+            <TextReveal delay={0.3}>(Puis vous remercier pendant 10 ans.)</TextReveal>
+          </h2>
+          <FadeIn delay={0.4}>
             <p className="text-white/80 text-lg md:text-xl font-inter mb-10 max-w-2xl leading-relaxed">
-              Transformez durablement votre posture managériale grâce à une approche scientifique unique : neurosciences comportementales et équicoaching.
+              3 jours pour comprendre pourquoi ils pètent les plombs — et comment arrêter de le faire.{' '}
+              <strong className="text-or">Neurosciences × Équicoaching.</strong>
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <MagneticButton href="/audit-gratuit">
@@ -67,8 +104,38 @@ export default function FormationLeadershipPage() {
         </div>
       </section>
 
-      {/* Modules */}
+      {/* Pour qui */}
       <section className="bg-white py-24 md:py-32">
+        <div className="container">
+          <FadeIn className="text-center mb-16">
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Pour qui ?</p>
+            <h2 className="text-4xl md:text-5xl font-playfair font-semibold">Cette formation est pour vous si :</h2>
+          </FadeIn>
+          <div className="grid md:grid-cols-3 gap-8">
+            {profiles.map((p, i) => (
+              <FadeIn key={p.who} delay={i * 0.1}>
+                <div className="card h-full flex flex-col">
+                  <h3 className="font-playfair font-semibold text-2xl text-violet-fonce mb-3">{p.who}</h3>
+                  <p className="text-gris-moyen font-inter text-sm mb-3">{p.pain}</p>
+                  <ul className="space-y-2 mb-6 flex-1">
+                    {p.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-gris-moyen font-inter text-sm leading-relaxed">
+                        <span className="w-1.5 h-1.5 rounded-full bg-or shrink-0 mt-2" />{item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-violet-fonce font-inter font-semibold text-sm border-t border-gris-clair pt-4">
+                    {p.conclusion}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Modules */}
+      <section className="bg-beige py-24 md:py-32">
         <div className="container">
           <FadeIn className="text-center mb-16">
             <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Le programme</p>
@@ -77,7 +144,7 @@ export default function FormationLeadershipPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {modules.map((m, i) => (
               <FadeIn key={m.n} delay={i * 0.08}>
-                <div className="card h-full">
+                <div className="card h-full bg-white">
                   <span className="text-or font-bold font-inter text-4xl block mb-4">{m.n}</span>
                   <h3 className="font-playfair font-semibold text-xl text-violet-fonce mb-3">{m.title}</h3>
                   <p className="text-gris-moyen font-inter text-sm leading-relaxed">{m.desc}</p>
@@ -89,24 +156,32 @@ export default function FormationLeadershipPage() {
       </section>
 
       {/* Programme 3 jours */}
-      <section className="bg-beige py-24 md:py-32">
+      <section className="bg-white py-24 md:py-32">
         <div className="container">
-          <FadeIn className="text-center mb-16">
+          <FadeIn className="text-center mb-6">
             <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Format intra-entreprise</p>
             <h2 className="text-4xl md:text-5xl font-playfair font-semibold text-violet-fonce">Le programme 3 jours</h2>
-            <p className="text-gris-moyen font-inter text-lg mt-4 max-w-2xl mx-auto">
-              Un parcours immersif structuré pour transformer durablement les postures de leadership de vos managers.
-            </p>
           </FadeIn>
+          <FadeIn className="text-center mb-16">
+            <p className="text-gris-moyen font-inter text-lg mt-4 max-w-2xl mx-auto">
+              Pas de PowerPoint à rallonge. Pas d&apos;ice breakers gênants.<br />
+              Juste de la science. De la pratique.{' '}
+              <strong className="text-violet-fonce">Et des chevaux.</strong>
+            </p>
+            <div className="mt-6 inline-block bg-or/10 border border-or/30 rounded-xl px-6 py-3 text-or font-inter text-sm font-semibold">
+              ⚠️ Cette formation va vous mettre face à vos incohérences. C&apos;est inconfortable. C&apos;est voulu. Parce que c&apos;est comme ça qu&apos;on change.
+            </div>
+          </FadeIn>
+
           <div className="space-y-8 max-w-4xl mx-auto">
             {/* Jour 1 */}
             <FadeIn>
-              <div className="bg-white rounded-2xl border border-gris-clair overflow-hidden">
+              <div className="bg-white rounded-2xl border border-gris-clair overflow-hidden shadow-sm">
                 <div className="bg-gradient-to-r from-violet-fonce to-violet px-8 py-6 flex items-center gap-4">
                   <span className="text-or font-playfair font-bold text-5xl leading-none">1</span>
                   <div>
                     <p className="text-white/60 font-inter text-sm uppercase tracking-widest">Jour 1</p>
-                    <h3 className="text-white font-playfair font-semibold text-2xl">Neurosciences & États du Cerveau</h3>
+                    <h3 className="text-white font-playfair font-semibold text-2xl">Pourquoi vous réagissez avant de réfléchir</h3>
                   </div>
                 </div>
                 <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gris-clair">
@@ -117,7 +192,7 @@ export default function FormationLeadershipPage() {
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Introduction à la théorie polyvagale : les 3 états du système nerveux (sécurité, mobilisation, effondrement)</li>
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Cartographie personnelle : identifier ses déclencheurs de stress et patterns automatiques</li>
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Les biais cognitifs du manager : comment le cerveau prend de mauvaises décisions sous pression</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Atelier pratique : test d'auto-évaluation neuro-leadership</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Atelier pratique : test d&apos;auto-évaluation neuro-leadership</li>
                     </ul>
                   </div>
                   <div className="p-8">
@@ -136,20 +211,20 @@ export default function FormationLeadershipPage() {
 
             {/* Jour 2 */}
             <FadeIn delay={0.1}>
-              <div className="bg-white rounded-2xl border border-gris-clair overflow-hidden">
+              <div className="bg-white rounded-2xl border border-gris-clair overflow-hidden shadow-sm">
                 <div className="bg-gradient-to-r from-or to-or-fonce px-8 py-6 flex items-center gap-4">
                   <span className="text-white/30 font-playfair font-bold text-5xl leading-none">2</span>
                   <div>
                     <p className="text-white/60 font-inter text-sm uppercase tracking-widest">Jour 2</p>
-                    <h3 className="text-white font-playfair font-semibold text-2xl">Leadership & Régulation Émotionnelle</h3>
+                    <h3 className="text-white font-playfair font-semibold text-2xl">Le cheval ne ment pas. Et vous non plus (enfin).</h3>
                   </div>
                 </div>
                 <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gris-clair">
                   <div className="p-8">
                     <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Matin — 9h00 à 12h30</p>
-                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Neurosciences de l'influence</h4>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Neurosciences de l&apos;influence</h4>
                     <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Synchronisation cérébrale et contagion émotionnelle : pourquoi l'état du leader contamine toute l'équipe</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Synchronisation cérébrale et contagion émotionnelle : pourquoi l&apos;état du leader contamine toute l&apos;équipe</li>
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Communication non verbale : décoder les 55% du message que vous ne dites pas</li>
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Construire la sécurité psychologique : modèle des 4 stades (Amy Edmondson)</li>
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Mise en pratique par duos : feedbacks avec ancrage neuroscientifique</li>
@@ -157,9 +232,9 @@ export default function FormationLeadershipPage() {
                   </div>
                   <div className="p-8">
                     <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Après-midi — 14h00 à 18h00</p>
-                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Première immersion équicoaching</h4>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Première immersion équicoaching 🐴</h4>
                     <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Introduction à l'intelligence des chevaux : biofeedback instantané, cohérence émotionnelle</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Introduction à l&apos;intelligence des chevaux : biofeedback instantané, cohérence émotionnelle</li>
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Exercice de mise en mouvement collectif : leadership sans paroles — qui prend le lead ?</li>
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Debrief individuel guidé : que révèle le cheval de votre posture de leader ?</li>
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Ancrage : liens entre observations terrain et contexte professionnel réel</li>
@@ -171,12 +246,12 @@ export default function FormationLeadershipPage() {
 
             {/* Jour 3 */}
             <FadeIn delay={0.2}>
-              <div className="bg-white rounded-2xl border border-gris-clair overflow-hidden">
+              <div className="bg-white rounded-2xl border border-gris-clair overflow-hidden shadow-sm">
                 <div className="bg-gradient-to-r from-violet to-violet-fonce px-8 py-6 flex items-center gap-4">
                   <span className="text-white/30 font-playfair font-bold text-5xl leading-none">3</span>
                   <div>
                     <p className="text-white/60 font-inter text-sm uppercase tracking-widest">Jour 3</p>
-                    <h3 className="text-white font-playfair font-semibold text-2xl">Ancrage & Plan d'Action</h3>
+                    <h3 className="text-white font-playfair font-semibold text-2xl">Ce qui change, ça tient. Pour de vrai.</h3>
                   </div>
                 </div>
                 <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gris-clair">
@@ -186,13 +261,13 @@ export default function FormationLeadershipPage() {
                     <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Séances individuelles en présence du cheval : incarner physiquement la nouvelle posture de leader</li>
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Exercice collectif avancé : co-leadership et gestion des tensions en temps réel</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Retour sur les 2 jours : quels patterns ont émergé ? Quelles ressources nouvelles ont été découvertes ?</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Retour sur les 2 jours : quels patterns ont émergé ? Quelles ressources nouvelles ?</li>
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Intégration des apprentissages : synthèse neurosciences × équicoaching</li>
                     </ul>
                   </div>
                   <div className="p-8">
                     <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Après-midi — 14h00 à 18h00</p>
-                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Construction du plan d'action</h4>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Construction du plan d&apos;action</h4>
                     <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Bilan 360° collectif : retours croisés entre participants</li>
                       <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Plan de développement individuel à 6 mois : 3 engagements concrets + indicateurs de réussite</li>
@@ -231,6 +306,46 @@ export default function FormationLeadershipPage() {
                       </li>
                     ))}
                   </ul>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Financement */}
+      <section className="bg-white py-24 md:py-32">
+        <div className="container">
+          <FadeIn className="text-center mb-16">
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Financement</p>
+            <h2 className="text-4xl font-playfair font-semibold">Le prix (et comment ne pas le payer)</h2>
+            <p className="text-gris-moyen font-inter text-lg mt-4 max-w-2xl mx-auto">
+              Oui, c&apos;est un investissement. Non, vous n&apos;allez probablement pas payer de votre poche.
+            </p>
+          </FadeIn>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                title: 'OPCO — ils paient (souvent tout)',
+                desc: "Votre OPCO peut prendre en charge jusqu'à 100 % du coût. On est certifiés Qualiopi, donc éligibles. Et on monte le dossier avec vous.",
+                note: "(Parce qu'on sait que c'est chiant à faire tout seul.)",
+              },
+              {
+                title: 'Plan de formation — vous budgétez',
+                desc: "Si vous avez un budget L&D, la formation rentre dedans. Certification Qualiopi = validation officielle et simplification administrative.",
+                note: null,
+              },
+              {
+                title: 'ROI — ce que vous économisez',
+                desc: "1 manager qui part = 6 à 24 mois de salaire perdus. Cette formation réduit le turnover de 30 % en moyenne.",
+                note: "La formation se rembourse en 3 à 6 mois.",
+              },
+            ].map((item, i) => (
+              <FadeIn key={item.title} delay={i * 0.1}>
+                <div className="card h-full">
+                  <h3 className="font-playfair font-semibold text-xl text-violet-fonce mb-4">{item.title}</h3>
+                  <p className="text-gris-moyen font-inter text-sm leading-relaxed mb-3">{item.desc}</p>
+                  {item.note && <p className="text-gris-moyen/60 font-inter text-xs italic">{item.note}</p>}
                 </div>
               </FadeIn>
             ))}
