@@ -9,7 +9,7 @@ export const metadata = {
     default: 'Cabinet Conseil Performance Managériale Paris | SD Équicoaching',
     template: '%s | SD Équicoaching',
   },
-  description: 'Transformez vos managers en leaders haute performance. Neurosciences × Équicoaching. 150+ managers formés. Certification Qualiopi. Île-de-France.',
+  description: 'SD Équicoaching — Manager de Transition, neurosciences comportementales et équicoaching pour dirigeants et comités de direction. Certification Qualiopi. Partout en France.',
   keywords: ['performance managériale', 'neurosciences management', 'équicoaching', 'leadership', 'formation managers', 'Paris', 'Île-de-France'],
   authors: [{ name: 'SD Équicoaching' }],
   openGraph: {
