@@ -1,21 +1,85 @@
 import Link from 'next/link'
-import { ArrowRight, Check, Clock, Users, Award } from 'lucide-react'
+import { ArrowRight, Check, Clock, Users, Award, BookOpen } from 'lucide-react'
 import FadeIn from '../../components/FadeIn'
 import TextReveal from '../../components/TextReveal'
 import MagneticButton from '../../components/MagneticButton'
 
 export const metadata = {
-  title: 'Formation Leadership Haute Performance — Neurosciences | SD Équicoaching',
-  description: "Programme de transformation managériale par les neurosciences comportementales. Formation individuelle et intra-entreprise. Certification Qualiopi. Partout en France.",
+  title: 'Programme Leadership Haute Performance — Neurosciences Comportementales | SD Équicoaching',
+  description: "Programme certifiant 21h combinant Théorie Polyvagale, protocoles de régulation validés et équicoaching. Certification Qualiopi. Éligible OPCO. 150+ leaders formés.",
 }
 
+const objectifs = [
+  {
+    n: '01',
+    title: 'Identifier et réguler ses états nerveux',
+    items: [
+      "Reconnaître les 3 états du système nerveux autonome (Théorie Polyvagale)",
+      "Détecter les signaux physiologiques précurseurs de dérégulation (HRV, patterns respiratoires, tensions musculaires)",
+      "Appliquer des protocoles de régulation validés : cohérence cardiaque, ancrage somatique",
+      "Mesurer sa progression via échelles validées (PSS-10) et indicateurs HRV",
+    ],
+  },
+  {
+    n: '02',
+    title: 'Comprendre les mécanismes neurobiologiques du leadership',
+    items: [
+      "Maîtriser les fondements de la Théorie Polyvagale (Porges, 2011)",
+      "Analyser l'impact du stress sur la prise de décision (circuit amygdale-cortex préfrontal)",
+      "Identifier ses saboteurs intérieurs et circuits neuronaux automatisés (Positive Intelligence, Chamine)",
+      "Intégrer les apports de l'intelligence émotionnelle et de la neuroception",
+    ],
+  },
+  {
+    n: '03',
+    title: 'Développer une posture de régulateur de système',
+    items: [
+      "Créer un climat de sécurité psychologique (Projet Aristotle, Google/Edmondson)",
+      "Gérer les dynamiques d'équipe complexes par la co-régulation",
+      "Communiquer de manière neuroscientifiquement informée (congruence verbal/non-verbal)",
+      "Prévenir l'épuisement professionnel (prévention primaire du burn-out par la neurobiologie)",
+    ],
+  },
+  {
+    n: '04',
+    title: 'Ancrer durablement les nouvelles pratiques',
+    items: [
+      "Expérimenter la cohérence managériale via l'équicoaching (mémoire procédurale)",
+      "Construire un plan d'action individuel 90 jours avec jalons",
+      "Intégrer des rituels de régulation quotidiens (cohérence cardiaque 365, ancrage)",
+      "Établir des indicateurs de suivi et points de contrôle à M+1 et M+3",
+    ],
+  },
+]
+
+const profiles = [
+  {
+    icon: <Users className="w-6 h-6" />,
+    who: 'Managers & Directeurs opérationnels',
+    desc: "Vous managez des équipes (5 à 200+ personnes) et souhaitez développer une posture de leadership régulé, améliorer la cohésion d'équipe et la performance collective par une approche neuroscientifique.",
+    examples: "Directeurs de département, Managers intermédiaires, Chefs de projet transverses",
+  },
+  {
+    icon: <Award className="w-6 h-6" />,
+    who: 'DRH & Responsables Formation',
+    desc: "Vous recherchez une formation scientifiquement fondée avec résultats mesurables et souhaitez professionnaliser la culture managériale de votre organisation.",
+    examples: "DRH, Responsables L&D, Responsables QVT, HRBP",
+  },
+  {
+    icon: <BookOpen className="w-6 h-6" />,
+    who: 'Dirigeants & Membres de COMEX',
+    desc: "Vous souhaitez développer une culture de leadership cohérente, êtes confrontés à des enjeux de transformation et cherchez à professionnaliser votre équipe de direction.",
+    examples: "CEO, DG, Membres de COMEX, Directeurs de BU, Entrepreneurs scale-up",
+  },
+]
+
 const modules = [
-  { n: '01', title: 'Comprendre votre cerveau de leader', desc: "Neurosciences de base, biais cognitifs, gestion du stress cérébral et régulation émotionnelle en situation de pression." },
-  { n: '02', title: 'Communication et influence', desc: "Synchronisation cérébrale, écoute profonde, feedback constructif ancré dans les mécanismes neurologiques." },
-  { n: '03', title: "Dynamiques d'équipe", desc: "Lecture des signaux non verbaux, détection des tensions émergentes, création de sécurité psychologique collective." },
-  { n: '04', title: 'Leadership sous pression', desc: "Maintenir le cap en situation de crise, décider avec lucidité, préserver son énergie décisionnelle." },
-  { n: '05', title: 'Ancrage par équicoaching', desc: "2 à 4 séances avec les chevaux pour incarner physiquement les nouvelles postures de leadership." },
-  { n: '06', title: 'Mesure et pérennisation', desc: "Bilan 360°, indicateurs de suivi, plan de développement à 6 et 12 mois avec jalons mesurables." },
+  { n: '01', title: 'Théorie Polyvagale appliquée', desc: "Les 3 états du système nerveux autonome (ventral, sympathique, dorsal) et leur impact direct sur la prise de décision, la communication et le leadership." },
+  { n: '02', title: 'Neurobiologie de la décision', desc: "Circuit amygdale-cortex préfrontal, rôle du cortisol, mécanismes de la pensée binaire sous stress. Pourquoi les meilleures décisions exigent un état régulé." },
+  { n: '03', title: 'Neuroception & contagion', desc: "Comment votre équipe évalue en permanence « Suis-je en sécurité ici ? » et comment votre état nerveux se propage via les neurones miroirs (Rizzolatti, 1996)." },
+  { n: '04', title: 'Saboteurs & neuroplasticité', desc: "Identification des 10 saboteurs intérieurs (Positive Intelligence, Chamine), circuits neuronaux automatisés et stratégies de neutralisation par la neuroplasticité." },
+  { n: '05', title: 'Protocoles de régulation', desc: "Cohérence cardiaque (365) · Ancrage somatique (voie afférente) · Dialogue IFS simplifié · Pratiques de présence attentive adaptées au management." },
+  { n: '06', title: 'Ancrage par équicoaching', desc: "Inscription dans la mémoire procédurale (Van der Kolk, 2014). Le cheval révèle instantanément l'état nerveux réel — feedback impossible à intellectualiser." },
 ]
 
 const formats = [
@@ -24,47 +88,14 @@ const formats = [
     title: 'Formation individuelle',
     duration: '3 à 6 mois',
     desc: "Accompagnement sur-mesure d'un manager ou dirigeant. Séances individuelles + équicoaching + suivi continu.",
-    features: ["12 séances de coaching individuel", "2 à 4 séances équicoaching", "Bilan neuro-leadership complet", "Rapport de progression mensuel"],
+    features: ["12 séances de coaching individuel", "2 à 4 séances équicoaching", "Bilan neuro-leadership complet (HRV, PSS-10)", "Rapport de progression mensuel"],
   },
   {
     icon: <Award className="w-8 h-8" />,
     title: 'Formation intra-entreprise',
-    duration: '2 à 4 jours',
-    desc: "Programme intensif pour un groupe de managers. Ateliers collectifs neurosciences et séances équicoaching.",
-    features: ["Groupe de 6 à 12 managers", "Ateliers collectifs sur-mesure", "1 journée équicoaching", "Debrief et rapport RH complet"],
-  },
-]
-
-const profiles = [
-  {
-    who: 'Vous êtes manager',
-    pain: "Et vous en avez marre de :",
-    items: [
-      "Péter un câble en réunion puis le regretter 2h après",
-      "Passer vos nuits à ruminer cette conversation qui a mal tourné",
-      "Voir vos meilleurs éléments partir parce que « l'ambiance est lourde »",
-    ],
-    conclusion: "Ce n'est pas vous le problème. C'est votre système nerveux. Et on peut le réguler.",
-  },
-  {
-    who: 'Vous êtes DRH',
-    pain: "Et vous cherchez une formation qui :",
-    items: [
-      "Change vraiment les comportements (pas juste pendant 3 semaines)",
-      "A des résultats mesurables — on parle chiffres, pas ressentis",
-      "Est fondée scientifiquement (pas du bullshit coaching)",
-    ],
-    conclusion: "Vous êtes au bon endroit. On mesure tout. Et ça marche.",
-  },
-  {
-    who: 'Vous êtes dirigeant',
-    pain: "Et vous voulez arrêter de :",
-    items: [
-      "Perdre vos meilleurs managers tous les 18 mois",
-      "Gérer des conflits d'équipe qui plombent la performance",
-      "Payer des formations qui ne changent rien",
-    ],
-    conclusion: "Le ROI moyen de cette formation : 250 % à 18 mois. On a les chiffres.",
+    duration: '3 jours ou 3×1j',
+    desc: "Programme intensif 21h pour un groupe de managers. Ateliers collectifs neurosciences et séances équicoaching.",
+    features: ["Groupe de 6 à 12 managers", "Ateliers collectifs sur-mesure", "1 journée équicoaching intégrée", "Évaluations 360° pré/post + rapport RH"],
   },
 ]
 
@@ -78,55 +109,63 @@ export default function FormationLeadershipPage() {
           <FadeIn>
             <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-4">Formation Leadership</p>
           </FadeIn>
-          <h1 className="text-white text-4xl md:text-6xl font-playfair font-semibold mb-4 max-w-4xl leading-tight">
-            <TextReveal>Cette formation, vos managers vont la détester.</TextReveal>
+          <h1 className="text-white text-4xl md:text-6xl font-playfair font-semibold mb-3 max-w-4xl leading-tight">
+            <TextReveal>Programme Leadership Haute Performance</TextReveal>
           </h1>
-          <h2 className="text-or text-2xl md:text-3xl font-playfair font-semibold mb-6 max-w-3xl leading-snug">
-            <TextReveal delay={0.3}>(Puis vous remercier pendant 10 ans.)</TextReveal>
+          <h2 className="text-or text-2xl md:text-3xl font-playfair font-semibold mb-6 leading-snug">
+            <TextReveal delay={0.2}>Neurosciences Comportementales × Équicoaching</TextReveal>
           </h2>
           <FadeIn delay={0.4}>
-            <p className="text-white/80 text-lg md:text-xl font-inter mb-10 max-w-2xl leading-relaxed">
-              3 jours pour comprendre pourquoi ils pètent les plombs — et comment arrêter de le faire.{' '}
-              <strong className="text-or">Neurosciences × Équicoaching.</strong>
+            <p className="text-white/80 text-lg font-inter mb-6 max-w-2xl leading-relaxed">
+              Programme certifiant de 21 heures combinant fondements neuroscientifiques,
+              protocoles de régulation validés (cohérence cardiaque, ancrage somatique)
+              et ancrage expérientiel par l&apos;équicoaching.
+            </p>
+            <p className="text-white/60 font-inter text-sm mb-10 max-w-2xl leading-relaxed">
+              <strong className="text-white/80">Fondements : </strong>
+              Théorie Polyvagale (Porges) · Neurobiologie du trauma (Van der Kolk) · Positive Intelligence (Chamine) · Intelligence émotionnelle (Goleman)
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <MagneticButton href="/audit-gratuit">
-                Démarrer par un audit gratuit <ArrowRight className="w-4 h-4" />
+                Planifier un échange <ArrowRight className="w-4 h-4" />
               </MagneticButton>
               <Link href="/contact" className="btn-outline-white">Nous contacter</Link>
             </div>
           </FadeIn>
           <FadeIn delay={0.5} className="flex flex-wrap gap-6 mt-10 text-white/60 font-inter text-sm">
-            <span className="flex items-center gap-2"><Clock className="w-4 h-4 text-or" /> 3 à 6 mois</span>
+            <span className="flex items-center gap-2"><Clock className="w-4 h-4 text-or" /> 21 heures (3 jours)</span>
             <span className="flex items-center gap-2"><Check className="w-4 h-4 text-or" /> Certification Qualiopi</span>
-            <span className="flex items-center gap-2"><Check className="w-4 h-4 text-or" /> Individuel & Intra-entreprise</span>
+            <span className="flex items-center gap-2"><Check className="w-4 h-4 text-or" /> 150+ leaders formés</span>
+            <span className="flex items-center gap-2"><Check className="w-4 h-4 text-or" /> Éligible financement OPCO</span>
           </FadeIn>
         </div>
       </section>
 
-      {/* Pour qui */}
+      {/* Objectifs pédagogiques */}
       <section className="bg-white py-24 md:py-32">
         <div className="container">
           <FadeIn className="text-center mb-16">
-            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Pour qui ?</p>
-            <h2 className="text-4xl md:text-5xl font-playfair font-semibold">Cette formation est pour vous si :</h2>
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Programme</p>
+            <h2 className="text-4xl md:text-5xl font-playfair font-semibold">Objectifs pédagogiques</h2>
+            <p className="text-gris-moyen font-inter text-lg mt-4 max-w-2xl mx-auto">
+              À l&apos;issue de ce programme, les participants seront capables de :
+            </p>
           </FadeIn>
-          <div className="grid md:grid-cols-3 gap-8">
-            {profiles.map((p, i) => (
-              <FadeIn key={p.who} delay={i * 0.1}>
-                <div className="card h-full flex flex-col">
-                  <h3 className="font-playfair font-semibold text-2xl text-violet-fonce mb-3">{p.who}</h3>
-                  <p className="text-gris-moyen font-inter text-sm mb-3">{p.pain}</p>
-                  <ul className="space-y-2 mb-6 flex-1">
-                    {p.items.map((item) => (
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {objectifs.map((obj, i) => (
+              <FadeIn key={obj.n} delay={i * 0.1}>
+                <div className="card h-full">
+                  <div className="flex items-center gap-4 mb-5">
+                    <span className="text-or font-bold font-inter text-3xl leading-none">{obj.n}</span>
+                    <h3 className="font-playfair font-semibold text-lg text-violet-fonce leading-snug">{obj.title}</h3>
+                  </div>
+                  <ul className="space-y-2">
+                    {obj.items.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-gris-moyen font-inter text-sm leading-relaxed">
-                        <span className="w-1.5 h-1.5 rounded-full bg-or shrink-0 mt-2" />{item}
+                        <Check className="w-4 h-4 text-or shrink-0 mt-0.5" />{item}
                       </li>
                     ))}
                   </ul>
-                  <p className="text-violet-fonce font-inter font-semibold text-sm border-t border-gris-clair pt-4">
-                    {p.conclusion}
-                  </p>
                 </div>
               </FadeIn>
             ))}
@@ -134,17 +173,57 @@ export default function FormationLeadershipPage() {
         </div>
       </section>
 
-      {/* Modules */}
+      {/* Public & Prérequis */}
       <section className="bg-beige py-24 md:py-32">
         <div className="container">
           <FadeIn className="text-center mb-16">
-            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Le programme</p>
-            <h2 className="text-4xl md:text-5xl font-playfair font-semibold">6 modules de transformation</h2>
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Pour qui ?</p>
+            <h2 className="text-4xl font-playfair font-semibold">Public & Prérequis</h2>
+          </FadeIn>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+            {profiles.map((p, i) => (
+              <FadeIn key={p.who} delay={i * 0.1}>
+                <div className="bg-white rounded-2xl p-8 border border-gris-clair h-full flex flex-col hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                  <div className="w-12 h-12 rounded-2xl bg-violet-pale flex items-center justify-center text-violet mb-5">
+                    {p.icon}
+                  </div>
+                  <h3 className="font-playfair font-semibold text-xl text-violet-fonce mb-3">{p.who}</h3>
+                  <p className="text-gris-moyen font-inter text-sm leading-relaxed mb-4 flex-1">{p.desc}</p>
+                  <p className="text-gris-moyen/70 font-inter text-xs border-t border-gris-clair pt-3">
+                    <span className="font-semibold">Ex. : </span>{p.examples}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+          <FadeIn>
+            <div className="max-w-2xl mx-auto bg-white rounded-2xl p-8 border border-gris-clair text-center">
+              <p className="font-playfair font-semibold text-xl text-violet-fonce mb-3">Prérequis</p>
+              <p className="text-gris-moyen font-inter leading-relaxed">
+                <strong className="text-violet-fonce">Aucun prérequis académique ou technique.</strong>
+                {' '}Cette formation s&apos;adresse à des managers en exercice, quel que soit leur secteur ou niveau hiérarchique.
+                <br /><br />
+                Prérequis unique : <strong className="text-violet-fonce">curiosité pour les neurosciences</strong> et <strong className="text-violet-fonce">volonté de transformer sa posture managériale</strong>.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Modules */}
+      <section className="bg-white py-24 md:py-32">
+        <div className="container">
+          <FadeIn className="text-center mb-16">
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Contenu pédagogique</p>
+            <h2 className="text-4xl md:text-5xl font-playfair font-semibold">6 modules scientifiques</h2>
+            <p className="text-gris-moyen font-inter text-lg mt-4 max-w-2xl mx-auto">
+              Pédagogie : 40% apports théoriques · 30% exercices pratiques · 30% débriefs collectifs
+            </p>
           </FadeIn>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {modules.map((m, i) => (
               <FadeIn key={m.n} delay={i * 0.08}>
-                <div className="card h-full bg-white">
+                <div className="card h-full">
                   <span className="text-or font-bold font-inter text-4xl block mb-4">{m.n}</span>
                   <h3 className="font-playfair font-semibold text-xl text-violet-fonce mb-3">{m.title}</h3>
                   <p className="text-gris-moyen font-inter text-sm leading-relaxed">{m.desc}</p>
@@ -156,7 +235,7 @@ export default function FormationLeadershipPage() {
       </section>
 
       {/* Programme 3 jours */}
-      <section className="bg-white py-24 md:py-32">
+      <section className="bg-beige py-24 md:py-32">
         <div className="container">
           <FadeIn className="text-center mb-6">
             <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Format intra-entreprise</p>
@@ -164,13 +243,9 @@ export default function FormationLeadershipPage() {
           </FadeIn>
           <FadeIn className="text-center mb-16">
             <p className="text-gris-moyen font-inter text-lg mt-4 max-w-2xl mx-auto">
-              Pas de PowerPoint à rallonge. Pas d&apos;ice breakers gênants.<br />
-              Juste de la science. De la pratique.{' '}
-              <strong className="text-violet-fonce">Et des chevaux.</strong>
+              40% apports scientifiques · 30% protocoles pratiques · 30% débriefs et intégration réflexive.
+              Fondements : Théorie Polyvagale · Positive Intelligence · Neurobiologie du trauma.
             </p>
-            <div className="mt-6 inline-block bg-or/10 border border-or/30 rounded-xl px-6 py-3 text-or font-inter text-sm font-semibold">
-              ⚠️ Cette formation va vous mettre face à vos incohérences. C&apos;est inconfortable. C&apos;est voulu. Parce que c&apos;est comme ça qu&apos;on change.
-            </div>
           </FadeIn>
 
           <div className="space-y-8 max-w-4xl mx-auto">
@@ -181,28 +256,28 @@ export default function FormationLeadershipPage() {
                   <span className="text-or font-playfair font-bold text-5xl leading-none">1</span>
                   <div>
                     <p className="text-white/60 font-inter text-sm uppercase tracking-widest">Jour 1</p>
-                    <h3 className="text-white font-playfair font-semibold text-2xl">Pourquoi vous réagissez avant de réfléchir</h3>
+                    <h3 className="text-white font-playfair font-semibold text-2xl">Neurosciences & États du Cerveau</h3>
                   </div>
                 </div>
                 <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gris-clair">
                   <div className="p-8">
                     <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Matin — 9h00 à 12h30</p>
-                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Comprendre son cerveau de leader</h4>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Théorie Polyvagale appliquée au management</h4>
                     <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Introduction à la théorie polyvagale : les 3 états du système nerveux (sécurité, mobilisation, effondrement)</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Cartographie personnelle : identifier ses déclencheurs de stress et patterns automatiques</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Les biais cognitifs du manager : comment le cerveau prend de mauvaises décisions sous pression</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Atelier pratique : test d&apos;auto-évaluation neuro-leadership</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Les 3 états du SNA : vagal ventral (sécurité), sympathique (mobilisation), dorsal (effondrement) — impact sur la décision et la communication</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Neuroception : évaluation inconsciente de la sécurité. Comment votre équipe vous lit avant que vous parliez</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Neurobiologie de la décision sous pression : circuit amygdale-cortex préfrontal, rôle du cortisol</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Atelier : auto-évaluation neuro-leadership, cartographie de vos états nerveux dominants</li>
                     </ul>
                   </div>
                   <div className="p-8">
                     <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Après-midi — 14h00 à 18h00</p>
-                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Les saboteurs intérieurs</h4>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Saboteurs intérieurs & Neuroplasticité</h4>
                     <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Les 9 saboteurs (méthode Positive Intelligence) : identification et impact sur le leadership</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Techniques de régulation émotionnelle : cohérence cardiaque, ancrage sensoriel</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Passage en revue des situations professionnelles difficiles à travers le prisme neuroscientifique</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Clôture : journal de bord — 3 insights clés + 1 intention pour demain</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Les 10 saboteurs (Positive Intelligence — Chamine) : Juge, Contrôleur, Hyper-performeur, Victime — circuits neuronaux automatisés</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Protocoles de régulation validés : cohérence cardiaque (365), ancrage somatique — mécanisme nerf vague → HRV → état ventral</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Neuroplasticité : comment le cerveau se recâble par la pratique répétée</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Journal de bord : 3 insights clés + 1 protocole de régulation à expérimenter</li>
                     </ul>
                   </div>
                 </div>
@@ -216,28 +291,28 @@ export default function FormationLeadershipPage() {
                   <span className="text-white/30 font-playfair font-bold text-5xl leading-none">2</span>
                   <div>
                     <p className="text-white/60 font-inter text-sm uppercase tracking-widest">Jour 2</p>
-                    <h3 className="text-white font-playfair font-semibold text-2xl">Le cheval ne ment pas. Et vous non plus (enfin).</h3>
+                    <h3 className="text-white font-playfair font-semibold text-2xl">Leadership Collectif & Co-régulation</h3>
                   </div>
                 </div>
                 <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gris-clair">
                   <div className="p-8">
                     <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Matin — 9h00 à 12h30</p>
-                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Neurosciences de l&apos;influence</h4>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Le leader comme régulateur de système</h4>
                     <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Synchronisation cérébrale et contagion émotionnelle : pourquoi l&apos;état du leader contamine toute l&apos;équipe</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Communication non verbale : décoder les 55% du message que vous ne dites pas</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Construire la sécurité psychologique : modèle des 4 stades (Amy Edmondson)</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Mise en pratique par duos : feedbacks avec ancrage neuroscientifique</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Principe de co-régulation (Porges) : votre état nerveux diffuse à l&apos;équipe par les neurones miroirs — contagion émotionnelle documentée</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Sécurité psychologique : 4 stades (Edmondson, Projet Aristotle Google) — comment créer un environnement de performance</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Communication neuroscientifiquement informée : au-delà des mots — ton de voix, posture, congruence intention/état</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Mise en pratique par duos : validation émotionnelle avant résolution — protocole SBI ancré</li>
                     </ul>
                   </div>
                   <div className="p-8">
                     <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Après-midi — 14h00 à 18h00</p>
                     <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Première immersion équicoaching 🐴</h4>
                     <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Introduction à l&apos;intelligence des chevaux : biofeedback instantané, cohérence émotionnelle</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Exercice de mise en mouvement collectif : leadership sans paroles — qui prend le lead ?</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Debrief individuel guidé : que révèle le cheval de votre posture de leader ?</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Ancrage : liens entre observations terrain et contexte professionnel réel</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Fondements éthologiques : le cheval perçoit les variations de fréquence cardiaque à 4 mètres — révélateur neurobiologique de l&apos;état nerveux</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Exercice de leadership sans paroles : qui prend le lead ? Révélation des patterns de co-régulation et d&apos;incongruence</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Debrief individuel guidé : liens entre état nerveux révélé par le cheval et posture managériale réelle</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Intégration : transposition systématique aux situations professionnelles identifiées</li>
                     </ul>
                   </div>
                 </div>
@@ -251,28 +326,28 @@ export default function FormationLeadershipPage() {
                   <span className="text-white/30 font-playfair font-bold text-5xl leading-none">3</span>
                   <div>
                     <p className="text-white/60 font-inter text-sm uppercase tracking-widest">Jour 3</p>
-                    <h3 className="text-white font-playfair font-semibold text-2xl">Ce qui change, ça tient. Pour de vrai.</h3>
+                    <h3 className="text-white font-playfair font-semibold text-2xl">Ancrage Somatique & Plan d&apos;Action</h3>
                   </div>
                 </div>
                 <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gris-clair">
                   <div className="p-8">
                     <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Matin — 9h00 à 12h30</p>
-                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Équicoaching approfondi</h4>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Équicoaching approfondi — mémoire procédurale</h4>
                     <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Séances individuelles en présence du cheval : incarner physiquement la nouvelle posture de leader</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Exercice collectif avancé : co-leadership et gestion des tensions en temps réel</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Retour sur les 2 jours : quels patterns ont émergé ? Quelles ressources nouvelles ?</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Intégration des apprentissages : synthèse neurosciences × équicoaching</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Séances individuelles : incarner physiquement la nouvelle posture — 80% des informations transitent du corps vers le cerveau (voie afférente, Van der Kolk)</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Exercice collectif avancé : co-leadership, gestion des tensions et désynchronisation nerveuse en temps réel</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Révélation des incongruences : l&apos;écart entre intention affichée et état émotionnel réel — impossible à intellectualiser</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Synthèse : intégration neurosciences × équicoaching, patterns émergents sur les 3 jours</li>
                     </ul>
                   </div>
                   <div className="p-8">
                     <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Après-midi — 14h00 à 18h00</p>
-                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Construction du plan d&apos;action</h4>
+                    <h4 className="font-playfair font-semibold text-lg text-violet-fonce mb-3">Plan d&apos;action individuel 90 jours</h4>
                     <ul className="space-y-3 text-gris-moyen font-inter text-sm leading-relaxed">
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Bilan 360° collectif : retours croisés entre participants</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Plan de développement individuel à 6 mois : 3 engagements concrets + indicateurs de réussite</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Dispositif de suivi : sessions de consolidation à M+1 et M+3</li>
-                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Remise du livret de restitution personnalisé sous 10 jours ouvrés</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Identification des situations à risque (déclencheurs personnels) et protocoles de régulation adaptés</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Plan d&apos;action 90 jours : 3 engagements concrets + rituels quotidiens + points de contrôle hebdomadaires</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Indicateurs de suivi : évaluations 360° pré/post, échelles PSS-10, feedback équipe à M+3 et M+6</li>
+                      <li className="flex gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Attestation Qualiopi · Bibliographie scientifique · Accès ressources complémentaires · Livret de restitution sous 10j</li>
                     </ul>
                   </div>
                 </div>
@@ -283,7 +358,7 @@ export default function FormationLeadershipPage() {
       </section>
 
       {/* Formats */}
-      <section className="bg-beige py-24 md:py-32">
+      <section className="bg-white py-24 md:py-32">
         <div className="container">
           <FadeIn className="text-center mb-16">
             <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Formats disponibles</p>
@@ -314,38 +389,59 @@ export default function FormationLeadershipPage() {
       </section>
 
       {/* Financement */}
-      <section className="bg-white py-24 md:py-32">
+      <section className="bg-beige py-24 md:py-32">
         <div className="container">
           <FadeIn className="text-center mb-16">
-            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Financement</p>
-            <h2 className="text-4xl font-playfair font-semibold">Le prix (et comment ne pas le payer)</h2>
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Modalités de financement</p>
+            <h2 className="text-4xl font-playfair font-semibold">Financement & Éligibilité</h2>
             <p className="text-gris-moyen font-inter text-lg mt-4 max-w-2xl mx-auto">
-              Oui, c&apos;est un investissement. Non, vous n&apos;allez probablement pas payer de votre poche.
+              Certification Qualiopi · Éligible OPCO, Plan de développement des compétences et FNE-Formation.
             </p>
           </FadeIn>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               {
-                title: 'OPCO — ils paient (souvent tout)',
-                desc: "Votre OPCO peut prendre en charge jusqu'à 100 % du coût. On est certifiés Qualiopi, donc éligibles. Et on monte le dossier avec vous.",
-                note: "(Parce qu'on sait que c'est chiant à faire tout seul.)",
+                title: 'OPCO',
+                subtitle: 'Opérateurs de Compétences',
+                items: [
+                  "Prise en charge totale ou partielle selon branche",
+                  "Certification Qualiopi : éligibilité garantie",
+                  "Nous accompagnons le montage du dossier",
+                  "Délai : dépôt 4 à 6 semaines avant formation",
+                ],
               },
               {
-                title: 'Plan de formation — vous budgétez',
-                desc: "Si vous avez un budget L&D, la formation rentre dedans. Certification Qualiopi = validation officielle et simplification administrative.",
-                note: null,
+                title: 'Plan de développement des compétences',
+                subtitle: 'Budget L&D entreprise',
+                items: [
+                  "Flexibilité totale sur le choix du programme",
+                  "Personnalisation selon votre contexte",
+                  "Certification Qualiopi = validation officielle",
+                  "Facturation et reporting sur-mesure",
+                ],
               },
               {
-                title: 'ROI — ce que vous économisez',
-                desc: "1 manager qui part = 6 à 24 mois de salaire perdus. Cette formation réduit le turnover de 30 % en moyenne.",
-                note: "La formation se rembourse en 3 à 6 mois.",
+                title: 'FNE-Formation',
+                subtitle: 'Entreprises en mutation',
+                items: [
+                  "Pour entreprises en restructuration ou transformation",
+                  "Prise en charge jusqu'à 100 % du coût pédagogique",
+                  "Éligibilité selon situation de l'entreprise",
+                  "Nous vous guidons dans la démarche",
+                ],
               },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 0.1}>
                 <div className="card h-full">
-                  <h3 className="font-playfair font-semibold text-xl text-violet-fonce mb-4">{item.title}</h3>
-                  <p className="text-gris-moyen font-inter text-sm leading-relaxed mb-3">{item.desc}</p>
-                  {item.note && <p className="text-gris-moyen/60 font-inter text-xs italic">{item.note}</p>}
+                  <h3 className="font-playfair font-semibold text-xl text-violet-fonce mb-1">{item.title}</h3>
+                  <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">{item.subtitle}</p>
+                  <ul className="space-y-2">
+                    {item.items.map((li) => (
+                      <li key={li} className="flex items-start gap-2 text-gris-moyen font-inter text-sm">
+                        <Check className="w-4 h-4 text-or shrink-0 mt-0.5" />{li}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </FadeIn>
             ))}
@@ -358,13 +454,14 @@ export default function FormationLeadershipPage() {
         <div className="container text-center">
           <FadeIn>
             <h2 className="text-white text-4xl font-playfair font-semibold mb-6">
-              Prêt à transformer votre leadership ?
+              Prêt à transformer votre leadership par les neurosciences ?
             </h2>
-            <p className="text-white/75 font-inter text-lg mb-8 max-w-xl mx-auto">
-              Commencez par un audit gratuit de 45 minutes pour définir votre programme sur-mesure.
+            <p className="text-white/75 font-inter text-lg mb-8 max-w-2xl mx-auto">
+              Diagnostic préliminaire de 90 minutes pour analyser votre contexte et définir votre programme sur-mesure.
+              <br /><span className="text-white/50 text-sm">Format visioconférence · Participants recommandés : DRH + Direction · Sans engagement · Confidentiel</span>
             </p>
             <MagneticButton href="/audit-gratuit">
-              Réserver mon audit gratuit <ArrowRight className="w-4 h-4" />
+              Planifier mon diagnostic préliminaire <ArrowRight className="w-4 h-4" />
             </MagneticButton>
           </FadeIn>
         </div>

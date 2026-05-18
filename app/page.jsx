@@ -6,84 +6,111 @@ import { ArrowRight, Check, ChevronDown, Star } from 'lucide-react'
 import GradientBlob from '../components/GradientBlob'
 import FadeIn from '../components/FadeIn'
 import TextReveal from '../components/TextReveal'
-import AnimatedNumber from '../components/AnimatedNumber'
 import MagneticButton from '../components/MagneticButton'
 
 const HeroScene3D = lazy(() => import('../components/HeroScene3D'))
 
+const piliers = [
+  {
+    icon: '🧠',
+    title: 'Fondements neuroscientifiques',
+    desc: "Théorie Polyvagale (Porges) · Neurobiologie du trauma (Van der Kolk) · Positive Intelligence (Chamine) · Intelligence émotionnelle (Goleman)",
+  },
+  {
+    icon: '🐴',
+    title: 'Équicoaching neurobiologique',
+    desc: "Le cheval perçoit les variations de fréquence cardiaque à 4 mètres et réagit instantanément à l'état nerveux du manager — feedback corporel impossible à intellectualiser.",
+  },
+  {
+    icon: '📊',
+    title: 'Approche mesurable',
+    desc: "Diagnostic avant/après · Évaluations 360° pré/post · Mesure HRV · Échelles validées PSS-10 · Indicateurs de suivi à 3 et 6 mois.",
+  },
+  {
+    icon: '✓',
+    title: 'Certification Qualiopi',
+    desc: "Éligible financement OPCO, Plan de développement des compétences. Conformité aux standards nationaux de formation continue.",
+  },
+]
+
 const problems = [
   {
-    icon: '😰',
-    title: 'Votre meilleur manager vient de craquer',
-    desc: "Burn-out, arrêt maladie, ou pire : il est là physiquement, mais mentalement il a déjà démissionné. Et vous ne l'avez pas vu venir.",
+    icon: '📉',
+    title: 'Turnover managérial élevé',
+    symptoms: [
+      "Talents clés qui quittent malgré des packages attractifs",
+      "Coûts de recrutement et d'intégration récurrents",
+      "Continuité managériale fragilisée",
+    ],
+    neuro: "Le turnover reflète souvent un état de dérégulation chronique du système nerveux autonome. Sous pression constante, le manager bascule progressivement d'un état vagal ventral (clarté, connexion, créativité) vers des états de survie (combat, fuite, figement) qui altèrent sa capacité de décision et sa posture relationnelle.",
+    sequence: "Détection de menace (amygdale) → Cortisol ↑ → Déconnexion cortex préfrontal → Décisions sous-optimales répétées → Épuisement → Départ",
+    action: "Identifier les signaux physiologiques précurseurs et activer des protocoles de régulation validés scientifiquement (cohérence cardiaque, ancrage somatique).",
   },
   {
-    icon: '🔥',
-    title: 'Vos réunions ressemblent à des rings de boxe',
-    desc: "Tensions, non-dits, micro-agressions. Vous passez 80 % de votre temps à éteindre des feux au lieu de construire.",
+    icon: '⚡',
+    title: 'Dynamiques d'équipe complexes',
+    symptoms: [
+      "Tensions latentes au sein des équipes ou du COMEX",
+      "Silos fonctionnels, déficit de collaboration transverse",
+      "Réunions improductives, décisions ralenties",
+      "Baromètre social dégradé",
+    ],
+    neuro: "Les systèmes nerveux se co-régulent (Porges, 2011). Via le principe de neuroception, chaque collaborateur évalue inconsciemment « Suis-je en sécurité ici ? » — basé sur la posture, le ton et les micro-expressions du manager. Un manager en état sympathique propage cet état à toute l'équipe par mimétisme neurologique (neurones miroirs).",
+    sequence: "État du manager → Contagion émotionnelle (neurones miroirs) → Désynchronisation des états nerveux collectifs → Performance dégradée",
+    action: "Former les managers à devenir des régulateurs de système : créer un climat de sécurité psychologique et co-réguler l'état nerveux collectif de l'équipe.",
   },
   {
-    icon: '💸',
-    title: 'Le turnover vous coûte une fortune',
-    desc: "Recrutement, formation, perte de productivité. 6 à 24 mois de salaire par départ. Et ça recommence 18 mois plus tard.",
+    icon: '🔋',
+    title: 'Épuisement et désengagement',
+    symptoms: [
+      "Arrêts maladie longue durée",
+      "Présentéisme, désengagement progressif",
+      "Irritabilité, perte de capacité d'écoute",
+      "Signaux de burn-out (épuisement, cynisme, inefficacité)",
+    ],
+    neuro: "L'épuisement n'est pas une faiblesse individuelle mais une réponse neurobiologique au stress chronique non régulé. Le système nerveux maintenu en mode survie épuise progressivement les ressources cognitives et émotionnelles jusqu'à l'état vagal dorsal (retrait, effondrement).",
+    sequence: "Stress chronique → Cortisol élevé en continu → Épuisement surrénalien → Inflammation → Altération cognitive → État dorsal",
+    action: "Protocoles de régulation quotidiens activant l'état vagal ventral (cohérence cardiaque, ancrage somatique). Prévention primaire du burn-out par la neurobiologie appliquée.",
   },
 ]
 
 const steps = [
-  { n: '01', title: 'On voit ce qui ne marche pas', desc: "Audit neuro-management. On identifie les dynamiques invisibles qui plombent votre performance. Rapport PDF actionnable sous 3 semaines." },
-  { n: '02', title: 'On leur explique pourquoi ils réagissent comme ça', desc: "Formation neurosciences comportementales. Vos managers comprennent ce qui se passe dans leur cerveau quand ça chauffe. Et comment réguler." },
-  { n: '03', title: 'On ancre tout ça dans le corps', desc: "Équicoaching en équipe. Le cheval révèle instantanément si vous êtes régulé ou pas. Impossible de tricher. Impossible d'oublier." },
-  { n: '04', title: 'On mesure. Tout.', desc: "Suivi post-formation à M+1 et M+3. Indicateurs définis avant le démarrage. Résultats prouvés, pas estimés." },
-]
-
-const offers = [
   {
-    icon: '🏆',
-    title: 'Formation Leadership',
-    subtitle: 'Haute Performance',
-    desc: "Programme intensif de 3 à 6 mois pour transformer vos managers en leaders qui inspirent et fédèrent.",
-    features: ["Bilan neuro-leadership personnalisé", "Coaching individuel & collectif", "Séances équicoaching mensuelles", "Mesure ROI à 3 et 6 mois"],
-    href: '/formation-leadership',
-    featured: true,
+    n: '01', title: 'Audit Neuro-Management',
+    desc: "Diagnostic factuel par lecture neurobiologique des dynamiques individuelles et collectives. Cartographie des états nerveux dominants (Ventral/Sympathique/Dorsal). Rapport 30-50 pages avec matrice de priorisation.",
   },
   {
-    icon: '🐴',
-    title: 'Teambuilding',
-    subtitle: 'Équicoaching',
-    desc: "Journée d'exception dans l'un de nos 200+ domaines partenaires partout en France.",
-    features: ["Partout en France — 200+ partenaires", "Ateliers avec les chevaux", "Debrief collectif approfondi", "Plan d'action co-construit"],
-    href: '/teambuilding-equicoaching',
-    featured: false,
+    n: '02', title: 'Formation Neurosciences',
+    desc: "Programme 21h fondé sur la Théorie Polyvagale (Porges), la Positive Intelligence (Chamine) et les protocoles de régulation validés (cohérence cardiaque, ancrage somatique, dialogue IFS).",
   },
   {
-    icon: '🎯',
-    title: 'Audit Gratuit',
-    subtitle: 'Performance Managériale',
-    desc: "45 minutes pour identifier vos 3 leviers prioritaires de performance. Sans engagement.",
-    features: ["Analyse de votre contexte", "Diagnostic personnalisé", "Recommandations actionnables", "Feuille de route stratégique"],
-    href: '/audit-gratuit',
-    featured: false,
+    n: '03', title: 'Ancrage Équicoaching',
+    desc: "Le cheval révèle instantanément l'état nerveux réel du manager — impossible à intellectualiser. Inscription dans la mémoire procédurale pour une intégration durable (Van der Kolk, 2014).",
+  },
+  {
+    n: '04', title: 'Mesure & Suivi',
+    desc: "Évaluations 360° pré/post · Échelles validées PSS-10 · Indicateurs HRV · Suivi longitudinal à M+1, M+3, M+6. Résultats prouvés, pas estimés.",
   },
 ]
 
 const testimonials = [
   {
-    quote: "J'étais sceptique. Genre vraiment sceptique. Un cheval, sérieusement ? Puis on a essayé. En 6 mois, notre turnover a chuté de 30 %. Et les managers nous remercient encore.",
+    quote: "La Théorie Polyvagale a donné un langage commun pour comprendre et réguler nos états nerveux collectifs. Notre équipe de direction a particulièrement apprécié la rigueur scientifique de la méthode — c'est exactement ce qui nous manquait pour objectiver des dynamiques que nous pressentions sans parvenir à les traiter.",
     name: "Marie L.",
-    role: "DRH, Groupe Industriel",
-    result: "−30 % turnover · +15 pts climat social",
+    role: "Directrice des Ressources Humaines",
+    company: "Groupe Industriel, 850 collaborateurs",
   },
   {
-    quote: "15 ans que je manage. Je pensais tout savoir. Cette formation m'a mis face à mes incohérences. Ça fait mal. Mais ça change tout. Maintenant je régule avant de dire un truc que je vais regretter.",
+    quote: "Identifier mon état nerveux avant chaque interaction importante a transformé ma posture. Les protocoles de régulation (cohérence cardiaque, ancrage somatique) sont devenus des réflexes quotidiens. 15 ans de management, et c'est la première formation qui explique ce qui se passe neurologiquement.",
     name: "Pierre D.",
-    role: "Directeur Commercial, Pharma",
-    result: "+25 % performance équipe",
+    role: "Directeur Commercial",
+    company: "Laboratoire pharmaceutique",
   },
   {
-    quote: "On avait essayé 4 formations avant. Résultat : zéro. Les gens repartaient contents, puis retombaient dans les mêmes patterns 3 semaines après. Là, 6 mois plus tard, ça tient encore.",
-    name: "Sophie M.",
-    role: "CEO, Startup Tech",
-    result: "NPS +40 points",
+    quote: "Comprendre la neuroception a changé ma manière de gérer les situations difficiles. Je ne réagis plus à chaud. L'équicoaching m'a montré concrètement l'écart entre mon intention et mon impact réel. Mes équipes sont plus engagées, moi plus serein.",
+    name: "Thomas D.",
+    role: "Directeur de Business Unit",
+    company: "Groupe technologique",
   },
 ]
 
@@ -106,14 +133,14 @@ export default function HomePage() {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-or/40 bg-or/10 backdrop-blur-sm mb-8"
           >
             <span className="text-or font-inter font-semibold text-sm tracking-widest">
-              NEUROSCIENCES · MANAGEMENT · ÉQUICOACHING
+              THÉORIE POLYVAGALE · NEUROSCIENCES · ÉQUICOACHING
             </span>
           </motion.div>
 
           <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-playfair font-semibold mb-6 max-w-5xl leading-tight">
-            <TextReveal>Votre meilleur manager vient de démissionner.</TextReveal>
-            <span className="text-or block mt-2">
-              <TextReveal delay={0.3}>Encore.</TextReveal>
+            <TextReveal>Transformez votre leadership</TextReveal>
+            <span className="text-or block mt-1">
+              <TextReveal delay={0.2}>par les neurosciences comportementales</TextReveal>
             </span>
           </h1>
 
@@ -121,24 +148,35 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-white/80 text-lg md:text-xl font-inter mb-10 max-w-2xl leading-relaxed"
+            className="text-white/80 text-lg md:text-xl font-inter mb-6 max-w-2xl leading-relaxed"
           >
-            Le problème n&apos;est pas vos managers.<br />
-            Ce sont les <strong className="text-or">dynamiques invisibles</strong> qui régissent vos équipes.<br />
-            On vous apprend à les voir. Et à les transformer.
+            Cabinet spécialisé en Théorie Polyvagale appliquée au management.
+            Nous formons les dirigeants et managers à comprendre les mécanismes
+            neurobiologiques qui régissent leurs décisions, leurs émotions
+            et leur impact sur leurs équipes.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-white/60 font-inter text-sm mb-8 leading-relaxed"
+          >
+            <span className="text-white/80 font-semibold">Fondements scientifiques : </span>
+            Théorie Polyvagale (Porges) · Neurobiologie du trauma (Van der Kolk) · Positive Intelligence (Chamine) · Intelligence émotionnelle (Goleman)
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.55 }}
-            className="flex flex-col sm:flex-row gap-4 mb-12"
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 mb-10"
           >
             <MagneticButton href="/audit-gratuit" variant="primary">
-              Réserver un audit gratuit <ArrowRight className="w-4 h-4" />
+              Réserver un diagnostic préliminaire <ArrowRight className="w-4 h-4" />
             </MagneticButton>
-            <Link href="#methode" className="btn-outline-white">
-              Découvrir la méthode
+            <Link href="#neurosciences" className="btn-outline-white">
+              Découvrir la Théorie Polyvagale
             </Link>
           </motion.div>
 
@@ -148,7 +186,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.75 }}
             className="flex flex-wrap gap-6 text-white/70 font-inter text-sm"
           >
-            {['Certification Qualiopi', '15+ ans expérience', 'Partout en France'].map((badge) => (
+            {['Méthodologie propriétaire A.N.E.', 'Certification Qualiopi', '15+ ans d\'expérience', '150+ leaders formés'].map((badge) => (
               <span key={badge} className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-or" />
                 {badge}
@@ -167,66 +205,76 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* STATS */}
+      {/* 4 PILIERS */}
       <section className="bg-violet py-16">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: '150', suffix: '+', label: 'managers qui ne pètent plus les plombs', note: '(enfin, presque)' },
-              { value: '98',  suffix: '%', label: 'nous recommandent', note: '(les 2 % restants n\'ont pas répondu)' },
-              { value: '200', suffix: '+', label: 'partenaires équestres', note: 'partout en France' },
-              { value: '30',  suffix: '%', label: 'de turnover en moins en moyenne', note: '(oui, on mesure tout)' },
-            ].map((stat, i) => (
-              <FadeIn key={stat.label} delay={i * 0.1}>
-                <div className="text-or text-4xl md:text-5xl font-bold font-playfair mb-2">
-                  <AnimatedNumber value={stat.value} suffix={stat.suffix} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {piliers.map((p, i) => (
+              <FadeIn key={p.title} delay={i * 0.1}>
+                <div className="text-center">
+                  <div className="text-4xl mb-3">{p.icon}</div>
+                  <h3 className="text-white font-playfair font-semibold text-lg mb-2 leading-snug">{p.title}</h3>
+                  <p className="text-white/65 font-inter text-sm leading-relaxed">{p.desc}</p>
                 </div>
-                <div className="text-white/85 font-inter text-sm font-medium leading-snug">{stat.label}</div>
-                <div className="text-white/45 font-inter text-xs mt-1">{stat.note}</div>
               </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* PROBLÈMES */}
+      {/* PROBLÉMATIQUES NEUROBIOLOGIQUES */}
       <section className="bg-white py-24 md:py-32">
         <div className="container">
-          <FadeIn className="text-center mb-16">
+          <FadeIn className="text-center mb-6">
             <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">
-              On parie que vous reconnaissez au moins 2 de ces situations
+              Enjeux neurologiques
             </p>
             <h2 className="text-4xl md:text-5xl font-playfair font-semibold mb-4">
-              <TextReveal>Ça vous parle ?</TextReveal>
+              <TextReveal>Les défis managériaux que nous adressons</TextReveal>
             </h2>
           </FadeIn>
+          <FadeIn className="text-center mb-16">
+            <p className="text-gris-moyen font-inter text-lg max-w-3xl mx-auto leading-relaxed">
+              Les environnements VUCA exigent des leaders une capacité accrue de régulation émotionnelle.
+              Nous intervenons sur trois enjeux neurologiques récurrents.
+            </p>
+          </FadeIn>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="space-y-8 max-w-5xl mx-auto">
             {problems.map((p, i) => (
               <FadeIn key={p.title} delay={i * 0.1}>
-                <motion.div
-                  className="card h-full"
-                  whileHover={{ y: -8, boxShadow: '0 24px 60px rgba(120,66,127,0.15)' }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="text-5xl mb-5">{p.icon}</div>
-                  <h3 className="text-2xl font-playfair font-semibold text-violet-fonce mb-3">{p.title}</h3>
-                  <p className="text-gris-moyen font-inter leading-relaxed">{p.desc}</p>
-                </motion.div>
+                <div className="rounded-2xl border border-gris-clair overflow-hidden">
+                  <div className="bg-violet-fonce/5 px-8 py-6 flex items-center gap-4 border-b border-gris-clair">
+                    <span className="text-4xl">{p.icon}</span>
+                    <h3 className="font-playfair font-semibold text-2xl text-violet-fonce">{p.title}</h3>
+                  </div>
+                  <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gris-clair">
+                    <div className="p-6">
+                      <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-3">Symptômes observés</p>
+                      <ul className="space-y-2">
+                        {p.symptoms.map((s) => (
+                          <li key={s} className="flex items-start gap-2 text-gris-moyen font-inter text-sm leading-snug">
+                            <span className="w-1.5 h-1.5 rounded-full bg-or shrink-0 mt-1.5" />{s}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="p-6">
+                      <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-3">Ce que les neurosciences révèlent</p>
+                      <p className="text-gris-moyen font-inter text-sm leading-relaxed mb-3">{p.neuro}</p>
+                      <p className="text-violet font-inter text-xs font-semibold leading-relaxed border-t border-gris-clair pt-3">
+                        ↳ {p.sequence}
+                      </p>
+                    </div>
+                    <div className="p-6">
+                      <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-3">Notre intervention</p>
+                      <p className="text-gris-moyen font-inter text-sm leading-relaxed">{p.action}</p>
+                    </div>
+                  </div>
+                </div>
               </FadeIn>
             ))}
           </div>
-
-          <FadeIn delay={0.3} className="text-center mt-14">
-            <p className="text-xl font-inter text-gris-fonce max-w-3xl mx-auto leading-relaxed">
-              Le problème n&apos;est pas vos managers.{' '}
-              <strong className="text-violet-fonce">On ne leur a jamais appris</strong>{' '}
-              comment fonctionne leur cerveau sous pression.
-            </p>
-            <p className="text-gris-moyen font-inter mt-3">
-              C&apos;est précisément ce qu&apos;on fait.
-            </p>
-          </FadeIn>
         </div>
       </section>
 
@@ -239,11 +287,11 @@ export default function HomePage() {
         />
         <div className="container relative z-10">
           <FadeIn className="text-center mb-16">
-            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Notre méthode</p>
-            <h2 className="text-4xl md:text-5xl font-playfair font-semibold mb-4">On ne vous vend pas du vent.</h2>
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Méthodologie propriétaire</p>
+            <h2 className="text-4xl md:text-5xl font-playfair font-semibold mb-4">La Méthode A.N.E.</h2>
             <p className="text-gris-moyen text-lg max-w-2xl mx-auto font-inter">
-              3 étapes. Aucun bullshit. Des résultats mesurables.
-              <br />Bienvenue dans la <strong className="text-violet-fonce">Méthode A.N.E.</strong>
+              Développée sur 15 années de recherche appliquée et validée auprès de 150+ leaders.
+              <br />Trois piliers complémentaires pour une transformation durable par la neurobiologie.
             </p>
           </FadeIn>
 
@@ -263,15 +311,78 @@ export default function HomePage() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
 
-          <FadeIn delay={0.4} className="mt-16 bg-white rounded-2xl p-8 md:p-10 border border-gris-clair max-w-3xl mx-auto text-center">
-            <p className="font-playfair font-semibold text-xl text-violet-fonce mb-3">Résultat ?</p>
-            <p className="text-gris-moyen font-inter leading-relaxed">
-              Vos managers régulent leur stress.{' '}
-              <strong className="text-violet-fonce">Vos équipes respirent.</strong>{' '}
-              Votre turnover chute.
+      {/* NEUROSCIENCES THOUGHT LEADERSHIP */}
+      <section id="neurosciences" className="bg-violet-fonce py-24 md:py-32">
+        <div className="container">
+          <FadeIn className="text-center mb-16">
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Comprendre le mécanisme</p>
+            <h2 className="text-white text-4xl md:text-5xl font-playfair font-semibold mb-4">
+              Pourquoi les neurosciences transforment le leadership
+            </h2>
+            <p className="text-white/70 font-inter text-lg max-w-3xl mx-auto">
+              La séquence neurobiologique de la dérégulation managériale — et comment l&apos;interrompre.
             </p>
-            <p className="text-gris-moyen/60 font-inter text-sm mt-2">(Et on a les chiffres pour le prouver.)</p>
+          </FadeIn>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+            {[
+              {
+                step: '01',
+                title: 'Détection de menace',
+                organ: 'Amygdale',
+                desc: "Un email critique, un objectif perçu comme irréaliste, une remise en question publique : l'amygdale s'active en quelques millisecondes. Elle évalue l'environnement à la recherche de signaux de danger sur la base d'expériences passées stockées en mémoire implicite.",
+              },
+              {
+                step: '02',
+                title: 'Réponse sympathique',
+                organ: 'Système nerveux sympathique',
+                desc: "Libération de cortisol et d'adrénaline. Rythme cardiaque de 70 à 120+ bpm. Tension musculaire ↑. Déconnexion partielle du cortex préfrontal — siège de la pensée stratégique. La pensée devient binaire. La nuance disparaît.",
+              },
+              {
+                step: '03',
+                title: 'Altération des capacités',
+                organ: 'Cortex préfrontal inhibé',
+                desc: "Réactivité émotionnelle excessive, perte d'empathie, décisions sous-optimales prises dans l'urgence émotionnelle, communication dégradée. Le manager fonctionne depuis son cerveau limbique, pas depuis son cortex préfrontal.",
+              },
+              {
+                step: '04',
+                title: 'Propagation à l'équipe',
+                organ: 'Neurones miroirs',
+                desc: "Via les neurones miroirs (Rizzolatti, 1996), l'état de stress se propage en quelques secondes à l'ensemble de l'équipe. Un manager en état sympathique active les systèmes sympathiques de ses collaborateurs. Réunion tendue, créativité effondrée.",
+              },
+            ].map((item, i) => (
+              <FadeIn key={item.step} delay={i * 0.1}>
+                <div className="bg-white/5 border border-white/15 rounded-2xl p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-or font-bold font-inter text-3xl leading-none">{item.step}</span>
+                    <div>
+                      <p className="text-white font-playfair font-semibold text-lg leading-snug">{item.title}</p>
+                      <p className="text-or font-inter text-xs font-semibold uppercase tracking-widest">{item.organ}</p>
+                    </div>
+                  </div>
+                  <p className="text-white/70 font-inter text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn className="max-w-3xl mx-auto">
+            <div className="bg-white/10 border border-or/30 rounded-2xl p-8 text-center">
+              <p className="text-or font-inter font-semibold text-sm uppercase tracking-widest mb-4">Notre réponse neurobiologique</p>
+              <p className="text-white font-playfair font-semibold text-xl mb-4">
+                Interrompre la cascade. Réactiver le cortex. Réguler le système.
+              </p>
+              <p className="text-white/70 font-inter text-sm leading-relaxed mb-6">
+                Cohérence cardiaque (HRV) · Ancrage somatique (voie afférente) · Protocoles IFS ·
+                Pratiques de présence attentive · Équicoaching (mémoire procédurale)
+              </p>
+              <MagneticButton href="/formation-leadership">
+                Découvrir le programme complet <ArrowRight className="w-4 h-4" />
+              </MagneticButton>
+            </div>
           </FadeIn>
         </div>
       </section>
@@ -280,15 +391,43 @@ export default function HomePage() {
       <section className="bg-white py-24 md:py-32">
         <div className="container">
           <FadeIn className="text-center mb-16">
-            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Nos programmes</p>
-            <h2 className="text-4xl md:text-5xl font-playfair font-semibold mb-4">Choisissez votre transformation</h2>
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Programmes</p>
+            <h2 className="text-4xl md:text-5xl font-playfair font-semibold mb-4">Nos interventions</h2>
             <p className="text-gris-moyen text-lg max-w-2xl mx-auto font-inter">
-              Des interventions sur-mesure, calibrées sur vos enjeux managériaux réels.
+              Des programmes sur-mesure fondés sur la Méthode A.N.E., calibrés sur vos enjeux managériaux réels.
             </p>
           </FadeIn>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {offers.map((offer, i) => (
+            {[
+              {
+                icon: '🏆',
+                title: 'Formation Leadership',
+                subtitle: 'Neurosciences × Équicoaching',
+                desc: "Programme 21h (3 jours ou 3×1j). Théorie Polyvagale appliquée, protocoles de régulation validés, ancrage par équicoaching. Pour managers, dirigeants et membres de COMEX.",
+                features: ["Bilan neuro-leadership personnalisé", "Protocoles de régulation (HRV, ancrage)", "Séances équicoaching avec debrief", "Suivi longitudinal M+1, M+3, M+6"],
+                href: '/formation-leadership',
+                featured: true,
+              },
+              {
+                icon: '🐴',
+                title: 'Teambuilding',
+                subtitle: 'Équicoaching Collectif',
+                desc: "Journée d'équipe fondée sur les mécanismes neurobiologiques de co-régulation. Révèle les dynamiques collectives, synchronise les états nerveux. 200+ partenaires partout en France.",
+                features: ["Partout en France — 200+ partenaires", "Exercices neuro-équicoaching", "Debrief collectif approfondi", "Plan d'action co-construit"],
+                href: '/teambuilding-equicoaching',
+                featured: false,
+              },
+              {
+                icon: '🎯',
+                title: 'Diagnostic Préliminaire',
+                subtitle: 'Audit Neuro-Management',
+                desc: "90 minutes pour analyser votre contexte managérial à travers le prisme des neurosciences et identifier les leviers de transformation prioritaires. Sans engagement.",
+                features: ["Cartographie des états nerveux dominants", "Analyse des dynamiques collectives", "Recommandations actionnables", "Feuille de route neurobiologique"],
+                href: '/audit-gratuit',
+                featured: false,
+              },
+            ].map((offer, i) => (
               <FadeIn key={offer.title} delay={i * 0.1}>
                 <div className={`rounded-2xl p-8 h-full flex flex-col border-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
                   offer.featured
@@ -336,8 +475,8 @@ export default function HomePage() {
       <section className="bg-beige py-24 md:py-32">
         <div className="container">
           <FadeIn className="text-center mb-16">
-            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Ce qu&apos;ils disent (vraiment)</p>
-            <h2 className="text-4xl md:text-5xl font-playfair font-semibold">Pas de bullshit. Juste des faits.</h2>
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Témoignages</p>
+            <h2 className="text-4xl md:text-5xl font-playfair font-semibold">Ce que disent nos clients</h2>
           </FadeIn>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -355,7 +494,7 @@ export default function HomePage() {
                   <footer>
                     <p className="font-playfair font-semibold text-violet-fonce">{t.name}</p>
                     <p className="text-gris-moyen font-inter text-sm">{t.role}</p>
-                    <p className="text-or font-inter font-semibold text-xs mt-2">{t.result}</p>
+                    <p className="text-gris-moyen/70 font-inter text-xs mt-0.5">{t.company}</p>
                   </footer>
                 </blockquote>
               </FadeIn>
@@ -367,49 +506,44 @@ export default function HomePage() {
       {/* CTA FINAL */}
       <section className="bg-violet-fonce py-24 md:py-32 relative overflow-hidden">
         <GradientBlob />
-        <div className="container relative z-10">
-          <FadeIn className="text-center mb-16">
-            <h2 className="text-white text-4xl md:text-5xl font-playfair font-semibold mb-4 max-w-3xl mx-auto">
-              Combien de managers brillants allez-vous encore perdre cette année ?
-            </h2>
-            <p className="text-white/70 font-inter text-lg max-w-xl mx-auto">
-              Vous avez deux options.
+        <div className="container relative z-10 max-w-4xl mx-auto text-center">
+          <FadeIn>
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-4">
+              Première étape
             </p>
-          </FadeIn>
+            <h2 className="text-white text-4xl md:text-5xl font-playfair font-semibold mb-6">
+              Évaluez le potentiel de transformation de votre organisation
+            </h2>
+            <p className="text-white/70 font-inter text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+              Diagnostic préliminaire de <strong className="text-white">90 minutes</strong> pour analyser votre contexte managérial
+              à travers le prisme des neurosciences et identifier les leviers de transformation prioritaires.
+            </p>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
-            <FadeIn delay={0.1}>
-              <div className="bg-white/5 border border-white/15 rounded-2xl p-8 h-full">
-                <p className="text-white/50 font-inter font-semibold text-xs uppercase tracking-widest mb-4">Option 1</p>
-                <h3 className="text-white font-playfair font-semibold text-xl mb-4">Continuer comme maintenant</h3>
-                <ul className="space-y-2 text-white/60 font-inter text-sm">
-                  <li>Attendre que ça se calme tout seul</li>
-                  <li>Perdre encore 2-3 managers clés</li>
-                  <li>Payer le prix (6 à 24 mois de salaire × 3)</li>
-                </ul>
-                <p className="text-white/30 font-inter text-xs mt-5 italic">Spoiler : ça ne se calmera pas tout seul.</p>
-              </div>
-            </FadeIn>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 max-w-3xl mx-auto text-left">
+              {[
+                "Objectiver vos enjeux managériaux actuels",
+                "Découvrir notre méthodologie A.N.E.",
+                "Recevoir une première analyse avec recommandations",
+                "Évaluer la pertinence de l'accompagnement",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-or shrink-0 mt-0.5" />
+                  <span className="text-white/80 font-inter text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
 
-            <FadeIn delay={0.2}>
-              <div className="bg-or/10 border-2 border-or rounded-2xl p-8 h-full">
-                <p className="text-or font-inter font-semibold text-xs uppercase tracking-widest mb-4">Option 2</p>
-                <h3 className="text-white font-playfair font-semibold text-xl mb-4">Réserver 30 minutes avec nous</h3>
-                <ul className="space-y-2 text-white/80 font-inter text-sm mb-6">
-                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />On analyse votre situation</li>
-                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />On vous dit si on peut vous aider (ou pas)</li>
-                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-or shrink-0 mt-0.5" />Sans engagement. Sans bullshit.</li>
-                </ul>
-                <MagneticButton href="/audit-gratuit">
-                  Réserver mon audit gratuit <ArrowRight className="w-4 h-4" />
-                </MagneticButton>
-              </div>
-            </FadeIn>
-          </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <MagneticButton href="/audit-gratuit" variant="primary">
+                Planifier mon diagnostic <ArrowRight className="w-4 h-4" />
+              </MagneticButton>
+              <Link href="/contact" className="btn-outline-white">
+                Nous contacter
+              </Link>
+            </div>
 
-          <FadeIn delay={0.3} className="text-center">
             <p className="text-white/35 font-inter text-sm">
-              Places limitées chaque mois. On ne prend que les projets où on sait qu&apos;on peut avoir un impact.
+              Format : Visioconférence · Participants recommandés : DRH + Direction Générale · Sans engagement · Confidentiel
             </p>
           </FadeIn>
         </div>
