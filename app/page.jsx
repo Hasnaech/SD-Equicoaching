@@ -1,7 +1,7 @@
 'use client'
 import { Suspense, lazy } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, Check, ChevronDown, Star, MapPin } from 'lucide-react'
 import GradientBlob from '../components/GradientBlob'
 import FadeIn from '../components/FadeIn'
@@ -198,16 +198,39 @@ export default function HomePage() {
       </section>
 
       {/* QUI SUIS-JE — Sarah Dabancens */}
-      <section className="bg-white py-24 md:py-32">
+      <section className="bg-white py-24 md:py-32 overflow-hidden">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <FadeIn direction="left">
-              <div className="rounded-2xl overflow-hidden aspect-[4/5] relative bg-beige">
-                <img
-                  src="/img/sarah.jpg"
-                  alt="Sarah Dabancens — Fondatrice SD Équicoaching"
-                  className="w-full h-full object-cover object-top"
-                />
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden aspect-[4/5] relative bg-beige shadow-2xl shadow-violet/10">
+                  <img
+                    src="/img/sarah.jpg"
+                    alt="Sarah Dabancens — Fondatrice SD Équicoaching"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                {/* floating badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4, duration: 0.5, type: 'spring' }}
+                  className="absolute -bottom-5 -right-5 bg-or text-white rounded-2xl px-5 py-4 shadow-xl shadow-or/30"
+                >
+                  <p className="font-playfair font-bold text-2xl">15+</p>
+                  <p className="font-inter text-xs text-white/80">ans terrain</p>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.55, duration: 0.5, type: 'spring' }}
+                  className="absolute -top-4 -left-4 bg-violet-fonce text-white rounded-2xl px-5 py-4 shadow-xl"
+                >
+                  <p className="font-playfair font-bold text-2xl">150+</p>
+                  <p className="font-inter text-xs text-white/70">leaders formés</p>
+                </motion.div>
               </div>
             </FadeIn>
             <FadeIn direction="right">
@@ -218,22 +241,19 @@ export default function HomePage() {
                 Une expertise de terrain
               </h2>
               <p className="text-gris-moyen font-inter text-lg leading-relaxed mb-6 italic border-l-4 border-or pl-5">
-                Mon approche ne vient pas des manuels, mais de 15 ans de management
-                opérationnel et de situations de crise.
+                Des outils clairs et immédiatement actionnables — pas de la théorie déconnectée du réel.
               </p>
               <div className="space-y-4 text-gris-moyen font-inter leading-relaxed mb-8">
                 <p>
                   Ancienne Directrice Commerciale devenue{' '}
                   <strong className="text-violet-fonce">Manager de Transition</strong> et{' '}
-                  <strong className="text-violet-fonce">Équicoach certifiée</strong>, j&apos;ai vécu
-                  la pression des chiffres et l&apos;urgence des restructurations.
+                  <strong className="text-violet-fonce">Équicoach certifiée</strong>, Sarah a vécu
+                  la pression des chiffres, les restructurations et la complexité des dynamiques de CODIR.
                 </p>
                 <p>
-                  Aujourd&apos;hui, je combine cette réalité du business avec les neurosciences
+                  Aujourd&apos;hui, elle combine cette réalité du business avec les neurosciences
                   appliquées pour <strong className="text-violet-fonce">stabiliser les organisations
-                  en mutation</strong>. L&apos;élégance du secteur luxe dont je suis issue m&apos;a appris
-                  l&apos;exigence et l&apos;attention au détail — la performance stratégique exige d&apos;aller
-                  au-delà des apparences pour adresser les mécanismes profonds.
+                  en mutation</strong> et transformer la tension biologique en performance collective durable.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 mb-8">

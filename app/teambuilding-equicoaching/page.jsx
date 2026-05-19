@@ -1,4 +1,6 @@
+'use client'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { ArrowRight, Check, Clock, Users, MapPin } from 'lucide-react'
 import FadeIn from '../../components/FadeIn'
 import TextReveal from '../../components/TextReveal'
@@ -199,6 +201,63 @@ export default function TeambuildingPage() {
                 </div>
               </FadeIn>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Galerie photos */}
+      <section className="bg-beige py-20 overflow-hidden">
+        <div className="container">
+          <FadeIn className="text-center mb-12">
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Sur le terrain</p>
+            <h2 className="text-3xl md:text-4xl font-playfair font-semibold text-violet-fonce">Ce que vous vivrez</h2>
+          </FadeIn>
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="relative rounded-2xl overflow-hidden aspect-[4/3] group"
+            >
+              <img
+                src="/img/equicoaching-groupe.jpg"
+                alt="Séance équicoaching collective — groupe avec cheval"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-violet-fonce/60 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="text-white font-playfair font-semibold text-lg leading-snug">
+                  La dynamique collective révélée en temps réel
+                </p>
+                <p className="text-white/70 font-inter text-sm mt-1">
+                  Le cheval ne ment pas — il révèle ce que les réunions cachent
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="relative rounded-2xl overflow-hidden aspect-[4/3] group"
+            >
+              <img
+                src="/img/equicoaching-cheval.jpg"
+                alt="Connexion individuelle avec le cheval — équicoaching"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-violet-fonce/60 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="text-white font-playfair font-semibold text-lg leading-snug">
+                  Le feedback impossible à intellectualiser
+                </p>
+                <p className="text-white/70 font-inter text-sm mt-1">
+                  "Si je ne suis pas régulé, le cheval ne coopère pas."
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
