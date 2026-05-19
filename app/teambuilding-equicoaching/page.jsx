@@ -88,7 +88,7 @@ export default function TeambuildingPage() {
               <strong className="text-or">Les non-dits remontent. Les tensions se dissolvent.</strong>
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <MagneticButton href="/audit-gratuit">
+              <MagneticButton href="https://calendly.com/sara-dabancens/seance-decouverte">
                 Organiser une journée <ArrowRight className="w-4 h-4" />
               </MagneticButton>
               <Link href="/contact" className="btn-outline-white">Nous contacter</Link>
@@ -264,7 +264,7 @@ export default function TeambuildingPage() {
                   </li>
                 ))}
               </ul>
-              <MagneticButton href="/audit-gratuit">
+              <MagneticButton href="https://calendly.com/sara-dabancens/seance-decouverte">
                 Organiser ma journée <ArrowRight className="w-4 h-4" />
               </MagneticButton>
             </FadeIn>

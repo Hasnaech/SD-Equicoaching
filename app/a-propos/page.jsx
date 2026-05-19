@@ -111,6 +111,115 @@ export default function AProposPage() {
         </div>
       </section>
 
+      {/* Le Collectif */}
+      <section className="bg-white py-24 md:py-32">
+        <div className="container">
+          <FadeIn className="text-center mb-16">
+            <p className="text-or font-inter font-semibold text-sm tracking-widest uppercase mb-3">Notre équipe</p>
+            <h2 className="text-4xl font-playfair font-semibold text-violet-fonce mb-4">4 expertes, une approche unique</h2>
+            <p className="text-gris-moyen font-inter text-lg max-w-2xl mx-auto leading-relaxed">
+              SD Équicoaching, c&apos;est un collectif pluridisciplinaire qui combine neurosciences, coaching, formation et équicoaching pour une transformation managériale complète et mesurable.
+            </p>
+          </FadeIn>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+            {/* Sarah */}
+            <FadeIn delay={0}>
+              <div className="bg-white rounded-2xl border border-gris-clair overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col h-full" style={{ borderTop: '4px solid #7C5CBF' }}>
+                <div className="p-8 flex flex-col flex-1">
+                  <div className="mb-4">
+                    <h3 className="font-playfair font-semibold text-2xl text-violet-fonce mb-1">Sarah Dabancens</h3>
+                    <p className="text-or font-inter font-semibold text-sm">Directrice & Fondatrice</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {["Neurosciences comportementales", "Équicoach certifiée", "Manager de Transition"].map((tag) => (
+                      <span key={tag} className="bg-violet-pale text-violet font-inter text-xs font-semibold px-3 py-1 rounded-full">{tag}</span>
+                    ))}
+                  </div>
+                  <p className="text-gris-moyen font-inter text-sm leading-relaxed flex-1">
+                    15 ans de management opérationnel dans le luxe. Directrice Commerciale devenue Manager de Transition et Coach en neurosciences. Elle orchestre les accompagnements et garantit la cohérence scientifique de chaque programme.
+                  </p>
+                  <div className="mt-6 pt-4 border-t border-gris-clair">
+                    <p className="text-violet font-inter font-semibold text-xs">150+ leaders formés · 15 ans terrain</p>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Christine */}
+            <FadeIn delay={0.1}>
+              <div className="bg-white rounded-2xl border border-gris-clair overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col h-full" style={{ borderTop: '4px solid #C9A84C' }}>
+                <div className="p-8 flex flex-col flex-1">
+                  <div className="mb-4">
+                    <h3 className="font-playfair font-semibold text-2xl text-violet-fonce mb-1">Christine</h3>
+                    <p className="text-or font-inter font-semibold text-sm">Responsable Formation</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {["MBTI certifiée", "PNL praticienne", "Expertise santé"].map((tag) => (
+                      <span key={tag} className="bg-or-pale text-or font-inter text-xs font-semibold px-3 py-1 rounded-full">{tag}</span>
+                    ))}
+                  </div>
+                  <p className="text-gris-moyen font-inter text-sm leading-relaxed flex-1">
+                    Formatrice experte avec 350 managers formés. Certifiée MBTI, praticienne PNL, elle construit et déploie les programmes de formation sur mesure. Ancienne formatrice à l&apos;école ESI.
+                  </p>
+                  <div className="mt-6 pt-4 border-t border-gris-clair">
+                    <p className="text-or font-inter font-semibold text-xs">350+ managers formés</p>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Audrey */}
+            <FadeIn delay={0.2}>
+              <div className="bg-white rounded-2xl border border-gris-clair overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col h-full" style={{ borderTop: '4px solid #C9A84C' }}>
+                <div className="p-8 flex flex-col flex-1">
+                  <div className="mb-4">
+                    <h3 className="font-playfair font-semibold text-2xl text-violet-fonce mb-1">Audrey</h3>
+                    <p className="text-or font-inter font-semibold text-sm">Responsable Team Building & Séminaires</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {["Équicoaching", "Facilitation", "Dynamiques de groupe"].map((tag) => (
+                      <span key={tag} className="bg-or-pale text-or font-inter text-xs font-semibold px-3 py-1 rounded-full">{tag}</span>
+                    ))}
+                  </div>
+                  <p className="text-gris-moyen font-inter text-sm leading-relaxed flex-1">
+                    Spécialiste des séminaires et team buildings équicoaching. Elle conçoit et anime les journées d&apos;immersion avec les chevaux, garantissant un ancrage corporel durable des apprentissages.
+                  </p>
+                  <div className="mt-6 pt-4 border-t border-gris-clair">
+                    <p className="text-or font-inter font-semibold text-xs">200+ centres partenaires</p>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Hasnae */}
+            <FadeIn delay={0.3}>
+              <div className="bg-white rounded-2xl border border-gris-clair overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col h-full" style={{ borderTop: '4px solid #7C5CBF' }}>
+                <div className="p-8 flex flex-col flex-1">
+                  <div className="mb-4">
+                    <h3 className="font-playfair font-semibold text-2xl text-violet-fonce mb-1">Hasnae</h3>
+                    <p className="text-or font-inter font-semibold text-sm">Experte Marketing & Communication</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {["Stratégie", "Marque employeur", "Communication"].map((tag) => (
+                      <span key={tag} className="bg-violet-pale text-violet font-inter text-xs font-semibold px-3 py-1 rounded-full">{tag}</span>
+                    ))}
+                  </div>
+                  <p className="text-gris-moyen font-inter text-sm leading-relaxed flex-1">
+                    Elle pilote la stratégie de communication du collectif et accompagne les entreprises dans la valorisation de leur démarche QVCT et marque employeur.
+                  </p>
+                  <div className="mt-6 pt-4 border-t border-gris-clair">
+                    <p className="text-violet font-inter font-semibold text-xs">Vision 360°</p>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-violet-fonce py-24 md:py-32">
         <div className="container text-center">
@@ -120,7 +229,7 @@ export default function AProposPage() {
               Un diagnostic préliminaire de 30 minutes pour faire connaissance et évaluer
               ensemble comment la neuro-régulation peut sécuriser la performance de votre organisation.
             </p>
-            <MagneticButton href="/audit-gratuit">
+            <MagneticButton href="https://calendly.com/sara-dabancens/seance-decouverte">
               Prendre rendez-vous <ArrowRight className="w-4 h-4" />
             </MagneticButton>
           </FadeIn>

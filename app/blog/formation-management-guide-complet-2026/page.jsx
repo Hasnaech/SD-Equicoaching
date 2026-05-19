@@ -196,7 +196,7 @@ export default function ArticleFormationManagement() {
             <p className="text-white/70 font-inter mb-8 max-w-xl mx-auto">
               Commencez par un audit gratuit de 45 minutes pour définir le programme adapté à vos enjeux.
             </p>
-            <MagneticButton href="/audit-gratuit">
+            <MagneticButton href="https://calendly.com/sara-dabancens/seance-decouverte">
               Démarrer mon audit gratuit <ArrowRight className="w-4 h-4" />
             </MagneticButton>
           </FadeIn>

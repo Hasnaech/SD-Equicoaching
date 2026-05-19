@@ -88,7 +88,7 @@ const formats = [
     title: 'Formation individuelle',
     duration: '3 à 6 mois',
     desc: "Accompagnement sur-mesure d'un manager ou dirigeant. Séances individuelles + équicoaching + suivi continu.",
-    features: ["12 séances de coaching individuel", "2 à 4 séances équicoaching", "Bilan neuro-leadership complet (HRV, PSS-10)", "Rapport de progression mensuel"],
+    features: ["12 séances de coaching individuel", "2 à 4 séances équicoaching", "Bilan neuro-leadership complet (HRV, PSS-10)", "Diagnostic MBTI certifié inclus", "Rapport de progression mensuel"],
   },
   {
     icon: <Award className="w-8 h-8" />,
@@ -123,10 +123,10 @@ export default function FormationLeadershipPage() {
             </p>
             <p className="text-white/60 font-inter text-sm mb-10 max-w-2xl leading-relaxed">
               <strong className="text-white/80">Fondements : </strong>
-              Théorie Polyvagale (Porges) · Neurobiologie du trauma (Van der Kolk) · Positive Intelligence (Chamine) · Intelligence émotionnelle (Goleman)
+              Théorie Polyvagale (Porges) · Neurobiologie du trauma (Van der Kolk) · Positive Intelligence (Chamine) · MBTI (Briggs Myers) · Intelligence émotionnelle (Goleman)
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <MagneticButton href="/audit-gratuit">
+              <MagneticButton href="https://calendly.com/sara-dabancens/seance-decouverte">
                 Planifier un échange <ArrowRight className="w-4 h-4" />
               </MagneticButton>
               <Link href="/contact" className="btn-outline-white">Nous contacter</Link>
@@ -460,7 +460,7 @@ export default function FormationLeadershipPage() {
               Diagnostic préliminaire de 90 minutes pour analyser votre contexte et définir votre programme sur-mesure.
               <br /><span className="text-white/50 text-sm">Format visioconférence · Participants recommandés : DRH + Direction · Sans engagement · Confidentiel</span>
             </p>
-            <MagneticButton href="/audit-gratuit">
+            <MagneticButton href="https://calendly.com/sara-dabancens/seance-decouverte">
               Planifier mon diagnostic préliminaire <ArrowRight className="w-4 h-4" />
             </MagneticButton>
           </FadeIn>

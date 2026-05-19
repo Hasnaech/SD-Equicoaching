@@ -180,7 +180,7 @@ export default function ArticleNeurosciences() {
             <p className="text-white/70 font-inter mb-8 max-w-xl mx-auto">
               Un audit gratuit de 45 minutes pour cartographier votre style de régulation émotionnelle et vos leviers de performance.
             </p>
-            <MagneticButton href="/audit-gratuit">
+            <MagneticButton href="https://calendly.com/sara-dabancens/seance-decouverte">
               Réserver mon audit <ArrowRight className="w-4 h-4" />
             </MagneticButton>
           </FadeIn>

@@ -1,17 +1,9 @@
 'use client'
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { MapPin, Mail, Clock, Check, ArrowRight } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock, ArrowRight, Check, Instagram, Linkedin } from 'lucide-react'
 import FadeIn from '../../components/FadeIn'
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false)
-  const [form, setForm] = useState({ prenom: '', nom: '', email: '', message: '' })
-
-  const set = (k) => (e) => setForm((prev) => ({ ...prev, [k]: e.target.value }))
-
-  const inputClass = "w-full border border-gris-clair rounded-xl px-4 py-3 font-inter text-sm focus:outline-none focus:border-violet transition-colors"
-
   return (
     <section className="bg-beige min-h-screen">
       <div className="container pt-32 pb-20">
@@ -23,6 +15,7 @@ export default function ContactPage() {
         </FadeIn>
 
         <div className="grid lg:grid-cols-2 gap-16">
+          {/* Left — contact info */}
           <FadeIn direction="left">
             <div className="space-y-8">
               <div className="flex items-start gap-4">
@@ -31,84 +24,114 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-playfair font-semibold text-violet-fonce mb-1">Zone d&apos;intervention</h3>
-                  <p className="text-gris-moyen font-inter">Paris & Île-de-France<br />Déplacements possibles en France</p>
+                  <p className="text-gris-moyen font-inter">
+                    Paris & Île-de-France<br />Déplacements partout en France
+                  </p>
                 </div>
               </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-violet-pale flex items-center justify-center shrink-0">
+                  <Phone className="w-5 h-5 text-violet" />
+                </div>
+                <div>
+                  <h3 className="font-playfair font-semibold text-violet-fonce mb-1">Téléphone</h3>
+                  <a
+                    href="tel:0643455145"
+                    className="text-gris-moyen font-inter hover:text-violet transition-colors"
+                  >
+                    06 43 45 51 45
+                  </a>
+                </div>
+              </div>
+
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-violet-pale flex items-center justify-center shrink-0">
                   <Mail className="w-5 h-5 text-violet" />
                 </div>
                 <div>
                   <h3 className="font-playfair font-semibold text-violet-fonce mb-1">Email</h3>
-                  <a href="mailto:contact@sd-equicoaching.fr" className="text-gris-moyen font-inter hover:text-violet transition-colors">
-                    contact@sd-equicoaching.fr
+                  <a
+                    href="mailto:sarah.dabancens@sd-equicoaching.fr"
+                    className="text-gris-moyen font-inter hover:text-violet transition-colors"
+                  >
+                    sarah.dabancens@sd-equicoaching.fr
                   </a>
                 </div>
               </div>
+
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-violet-pale flex items-center justify-center shrink-0">
                   <Clock className="w-5 h-5 text-violet" />
                 </div>
                 <div>
                   <h3 className="font-playfair font-semibold text-violet-fonce mb-1">Disponibilités</h3>
-                  <p className="text-gris-moyen font-inter">Lundi – Vendredi, 9h – 18h<br />Réponse sous 24h ouvrées</p>
+                  <p className="text-gris-moyen font-inter">Lundi – Vendredi, 9h – 18h</p>
                 </div>
+              </div>
+
+              <div className="flex items-center gap-4 pt-2">
+                <a
+                  href="https://www.instagram.com/sarahdabancens/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-xl bg-violet-pale flex items-center justify-center shrink-0 hover:bg-violet hover:text-white transition-colors group"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5 text-violet group-hover:text-white transition-colors" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/sarah-dabancens/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-xl bg-violet-pale flex items-center justify-center shrink-0 hover:bg-violet hover:text-white transition-colors group"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5 text-violet group-hover:text-white transition-colors" />
+                </a>
               </div>
             </div>
           </FadeIn>
 
+          {/* Right — Calendly CTA card */}
           <FadeIn direction="right" delay={0.2}>
-            {!submitted ? (
-              <div className="bg-white rounded-2xl p-10 shadow-sm border border-gris-clair">
-                <h2 className="font-playfair font-semibold text-2xl text-violet-fonce mb-6">Envoyer un message</h2>
-                <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block font-inter text-sm font-medium text-gris-fonce mb-1">Prénom *</label>
-                      <input required type="text" className={inputClass} value={form.prenom} onChange={set('prenom')} />
-                    </div>
-                    <div>
-                      <label className="block font-inter text-sm font-medium text-gris-fonce mb-1">Nom *</label>
-                      <input required type="text" className={inputClass} value={form.nom} onChange={set('nom')} />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block font-inter text-sm font-medium text-gris-fonce mb-1">Email *</label>
-                    <input required type="email" className={inputClass} value={form.email} onChange={set('email')} />
-                  </div>
-                  <div>
-                    <label className="block font-inter text-sm font-medium text-gris-fonce mb-1">Message *</label>
-                    <textarea
-                      required
-                      rows={5}
-                      className={`${inputClass} resize-none`}
-                      value={form.message}
-                      onChange={set('message')}
-                    />
-                  </div>
-                  <motion.button
-                    type="submit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="btn-primary w-full justify-center py-4"
-                  >
-                    Envoyer <ArrowRight className="w-4 h-4" />
-                  </motion.button>
-                </form>
-              </div>
-            ) : (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-white rounded-2xl p-10 text-center shadow-sm border border-gris-clair"
+            <div className="bg-white rounded-2xl p-10 shadow-sm border border-gris-clair">
+              <h2 className="font-playfair font-semibold text-2xl text-violet-fonce mb-2">
+                Réservez votre session découverte
+              </h2>
+              <p className="text-or font-inter font-semibold text-sm mb-6">
+                30 minutes · Gratuit · Sans engagement
+              </p>
+              <p className="text-gris-moyen font-inter leading-relaxed mb-8">
+                Un échange stratégique pour analyser vos enjeux et découvrir comment notre approche
+                peut transformer votre organisation.
+              </p>
+
+              <ul className="space-y-3 mb-10">
+                {[
+                  "Analyse de votre contexte managérial",
+                  "Identification des freins collectifs",
+                  "Présentation de notre méthode adaptée",
+                  "Évaluation de la pertinence d'un accompagnement",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 font-inter text-gris-fonce text-sm">
+                    <Check className="w-4 h-4 text-or shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <motion.a
+                href="https://calendly.com/sara-dabancens/seance-decouverte"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="btn-primary w-full justify-center py-4 text-base"
               >
-                <div className="w-20 h-20 rounded-full bg-or/10 flex items-center justify-center mx-auto mb-6">
-                  <Check className="w-10 h-10 text-or" />
-                </div>
-                <h2 className="font-playfair font-semibold text-2xl text-violet-fonce mb-4">Message envoyé !</h2>
-                <p className="text-gris-moyen font-inter">Nous vous répondrons sous 24h ouvrées.</p>
-              </motion.div>
-            )}
+                Réserver ma session découverte →
+              </motion.a>
+            </div>
           </FadeIn>
         </div>
       </div>

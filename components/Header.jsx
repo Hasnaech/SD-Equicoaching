@@ -2,19 +2,20 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X, ChevronDown, Instagram, Linkedin } from 'lucide-react'
+
+const CALENDLY_URL = 'https://calendly.com/sara-dabancens/seance-decouverte'
 
 const nav = [
   {
-    label: 'Nos programmes',
+    label: 'Offres',
     children: [
       { label: 'Formation Leadership', href: '/formation-leadership' },
       { label: 'Teambuilding Équicoaching', href: '/teambuilding-equicoaching' },
     ],
   },
-  { label: 'Audit Gratuit', href: '/audit-gratuit' },
-  { label: 'À propos', href: '/a-propos' },
   { label: 'Blog', href: '/blog' },
+  { label: 'À propos', href: '/a-propos' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -94,14 +95,34 @@ export default function Header() {
           )}
         </nav>
 
-        {/* CTA desktop */}
-        <div className="hidden lg:block">
-          <Link
-            href="/audit-gratuit"
+        {/* CTA + social icons desktop */}
+        <div className="hidden lg:flex items-center gap-3">
+          <a
+            href="https://www.instagram.com/sarahdabancens/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram SD Équicoaching"
+            className={`transition-colors duration-300 ${scrolled ? 'text-gris-moyen hover:text-or' : 'text-white/50 hover:text-or'}`}
+          >
+            <Instagram className="w-4 h-4" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sarah-dabancens/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Sarah Dabancens"
+            className={`transition-colors duration-300 ${scrolled ? 'text-gris-moyen hover:text-or' : 'text-white/50 hover:text-or'}`}
+          >
+            <Linkedin className="w-4 h-4" />
+          </a>
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-or text-white font-inter font-semibold text-sm rounded-full transition-all duration-300 hover:bg-or-fonce hover:shadow-lg hover:shadow-or/30 hover:scale-105 active:scale-95"
           >
-            Audit gratuit
-          </Link>
+            Réserver 30 min
+          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -153,13 +174,35 @@ export default function Header() {
                 )
               )}
               <div className="mt-4 px-4">
-                <Link
-                  href="/audit-gratuit"
-                  className="btn-primary w-full justify-center"
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary w-full justify-center text-center block"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Réserver mon audit gratuit
-                </Link>
+                  Réserver 30 min
+                </a>
+              </div>
+              <div className="mt-4 px-4 flex items-center gap-4">
+                <a
+                  href="https://www.instagram.com/sarahdabancens/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram SD Équicoaching"
+                  className="text-gris-moyen hover:text-or transition-colors"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/sarah-dabancens/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Sarah Dabancens"
+                  className="text-gris-moyen hover:text-or transition-colors"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
               </div>
             </nav>
           </motion.div>

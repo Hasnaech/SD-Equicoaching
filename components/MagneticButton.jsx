@@ -23,6 +23,8 @@ export default function MagneticButton({ href, children, variant = 'primary', cl
 
   const cls = variant === 'primary' ? 'btn-primary' : variant === 'secondary' ? 'btn-secondary' : 'btn-outline-white'
 
+  const isExternal = href && (href.startsWith('http://') || href.startsWith('https://'))
+
   return (
     <motion.div
       ref={ref}
@@ -31,7 +33,11 @@ export default function MagneticButton({ href, children, variant = 'primary', cl
       onMouseLeave={handleMouseLeave}
     >
       {href ? (
-        <Link href={href} className={`${cls} ${className}`}>{children}</Link>
+        isExternal ? (
+          <a href={href} target="_blank" rel="noopener noreferrer" className={`${cls} ${className}`}>{children}</a>
+        ) : (
+          <Link href={href} className={`${cls} ${className}`}>{children}</Link>
+        )
       ) : (
         <button className={`${cls} ${className}`}>{children}</button>
       )}

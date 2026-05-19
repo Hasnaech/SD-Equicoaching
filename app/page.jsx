@@ -160,7 +160,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.65 }}
             className="flex flex-col sm:flex-row gap-4 mb-12"
           >
-            <MagneticButton href="/audit-gratuit">
+            <MagneticButton href="https://calendly.com/sara-dabancens/seance-decouverte">
               Réserver un diagnostic préliminaire <ArrowRight className="w-4 h-4" />
             </MagneticButton>
             <Link href="#approche" className="btn-outline-white">
@@ -506,12 +506,12 @@ export default function HomePage() {
               ))}
             </div>
 
-            <MagneticButton href="/audit-gratuit">
+            <MagneticButton href="https://calendly.com/sara-dabancens/seance-decouverte">
               Prendre rendez-vous <ArrowRight className="w-4 h-4" />
             </MagneticButton>
 
             <p className="text-white/35 font-inter text-sm mt-6">
-              Sans engagement · Échange confidentiel · Visioconférence ou téléphone
+              30 minutes · Gratuit · Sans engagement · Visioconférence
             </p>
           </FadeIn>
         </div>

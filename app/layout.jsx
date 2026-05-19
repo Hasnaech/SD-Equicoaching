@@ -6,16 +6,53 @@ import Footer from '../components/Footer'
 export const metadata = {
   metadataBase: new URL('https://sd-equicoaching.fr'),
   title: {
-    default: 'Cabinet Conseil Performance Managériale Paris | SD Équicoaching',
+    default: 'SD Équicoaching — Formation Leadership Neurosciences & Teambuilding Manager | Paris & France',
     template: '%s | SD Équicoaching',
   },
-  description: 'SD Équicoaching — Manager de Transition, neurosciences comportementales et équicoaching pour dirigeants et comités de direction. Certification Qualiopi. Partout en France.',
-  keywords: ['performance managériale', 'neurosciences management', 'équicoaching', 'leadership', 'formation managers', 'Paris', 'Île-de-France'],
+  description: 'Collectif expert en formation leadership neurosciences, formation manager et teambuilding. Neurosciences comportementales, équicoaching et MBTI pour dirigeants et CODIR. Certification Qualiopi. Partout en France.',
+  keywords: [
+    'performance managériale',
+    'neurosciences management',
+    'équicoaching',
+    'leadership',
+    'formation managers',
+    'formation leadership neurosciences',
+    'formation manager',
+    'teambuilding manager',
+    'équicoaching entreprise',
+    'coaching CODIR',
+    'neurosciences comportementales',
+    'manager de transition',
+    'Paris',
+    'Île-de-France',
+  ],
   authors: [{ name: 'SD Équicoaching' }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://sd-equicoaching.fr',
+  },
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
+    url: 'https://sd-equicoaching.fr',
     siteName: 'SD Équicoaching',
+    title: 'SD Équicoaching — Formation Leadership Neurosciences & Teambuilding Manager | Paris & France',
+    description: 'Collectif expert en formation leadership neurosciences, formation manager et teambuilding. Neurosciences comportementales, équicoaching et MBTI pour dirigeants et CODIR. Certification Qualiopi. Partout en France.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SD Équicoaching — Formation Leadership Neurosciences & Teambuilding Manager',
+    description: 'Collectif expert en formation leadership neurosciences, formation manager et teambuilding. Neurosciences comportementales, équicoaching et MBTI pour dirigeants et CODIR.',
   },
 }
 
